@@ -10,16 +10,19 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
   <script src="./assets/js/main.js" defer></script>
 
 </head>
 
 <body>
   <div class="loading">
+
     <div class="top">
       <span>audio pro a28</span>
       <span>a webflow 3d case study</span>
@@ -54,7 +57,7 @@
           </li>
         </ul>
       </nav>
-      <button aria-expanded="false" aria-haspopup="menu" class="buttonBurger">
+      <button aria-expanded="false" aria-haspopup="menu" class="burgerBtn" aria-label="메뉴열기">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 800"
           width="800" height="800" preserveAspectRatio="xMidYMid meet"
           style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;"
@@ -131,7 +134,13 @@
   </header>
   <main class="container">
     <section class="section-speaker">
+      <!-- <div class="inner1 canvas">
+
+      </div> -->
       <div class="inner1">
+        <!-- <div class="canvas-area"> -->
+        <canvas id="canvas"></canvas>
+        <!-- </div> -->
         <div class="text-box">
           <div class="headline-box">
             <p class="headline-small">

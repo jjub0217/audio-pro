@@ -273,27 +273,27 @@ fieldset {
     display: none;
   }
 }
-.header .buttonBurger {
+.header .burgerBtn {
   display: none;
 }
 @media screen and (max-width: 991px) {
-  .header .buttonBurger {
+  .header .burgerBtn {
     display: block;
     width: 60px;
     height: 60px;
     padding: 12px;
   }
 }
-.header .buttonBurger svg.burger {
+.header .burgerBtn svg.burger {
   display: block;
 }
-.header .buttonBurger svg.close {
+.header .burgerBtn svg.close {
   display: none;
 }
-.header .buttonBurger.on svg.burger {
+.header .burgerBtn.on svg.burger {
   display: none;
 }
-.header .buttonBurger.on svg.close {
+.header .burgerBtn.on svg.close {
   display: block;
 }
 .header .mo-gnb {
@@ -449,6 +449,9 @@ fieldset {
   height: calc(100vh - 96px);
   position: sticky;
   top: 0;
+}
+.section-speaker #canvas {
+  position: absolute;
 }
 .section-speaker .text-box {
   height: 100%;

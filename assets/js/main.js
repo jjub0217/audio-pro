@@ -1,4 +1,17 @@
 
+const lenis = new Lenis()
+
+// lenis.on('scroll', (e) => {
+//   console.log(e)
+// })
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+
 const textTl = gsap.timeline()
 textTl.from(".loading .bottom .count", {
   textContent: 76,
@@ -12,9 +25,14 @@ textTl.from(".loading .bottom .count", {
 .to('.loading',{ display: "none" }, 'a')
 .to('.wrapper',{ opacity: 1,display: "block" })
 
-$(".buttonBurger").click(function(){
+$(".burgerBtn").click(function(){
   $(".mo-gnb").toggleClass("isAct")
-  $(this).toggleClass("on")
+  $(this).toggleClass("on");
+  if ($(this).attr('aria-expanded') === 'false') {
+    $(this).attr('aria-expanded', 'true' )
+  } else {
+    $(this).attr('aria-expanded', 'false' )
+  }
 })
 
 $(".button").mouseenter(function(e){
@@ -25,6 +43,50 @@ $(".button").mouseleave(function(){
   $(this).removeClass("on")
   // $(".cursor").removeClass("isZoom")
 })
+const canvas = document.querySelector("#canvas");
+const ctx = canvas.getContext('2d');
+
+canvas.width = 2880;
+canvas.height = 1720;
+
+
+const frameCount = 90;
+
+const currentFrame = (idx) => {
+  console.log(`./assets/images/audio${idx.toString().padStart(3, '0')}.png`);
+  return `./assets/images/audio${idx.toString().padStart(3, '0')}.png`;
+}
+const images = [];
+const card = {
+  frame: 0,
+};
+
+for (let i = 0; i < frameCount; i++) {
+  const img = new Image();
+  img.src = currentFrame(i + 1);
+  images.push(img);
+}
+
+// gsap.to(card, {
+//   frame: frameCount - 1,
+//   snap: 'frame',
+//   ease: 'none',
+//   scrollTrigger: {
+//     markers: true,
+//     trigger: '.canvas-area',
+//     scrub: 1,
+//     start: 'top top',
+//     end: 'bottom center',
+//   },
+//   onUpdate: render,
+// });
+
+images[0].onload = render;
+
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(images[card.frame], 0, 0);
+}
 
 
 gsap.timeline({
@@ -32,11 +94,18 @@ gsap.timeline({
   trigger:$(".section-speaker"), 
   start:"0% 0%",
   end:"100% 50%",
-  markers:false,
+  markers:true,
   scrub:1,
   },
+    onUpdate: render,
 })
 .addLabel('a')
+.to(card, {
+  duration: 1,
+  frame: frameCount - 1,
+  snap: 'frame',
+  ease: 'none',
+},'a')
 .to($(".header"), {
   height: 80
 }, 'a')
@@ -56,9 +125,15 @@ gsap.timeline({
   opacity: 1
 })
 .to($(".section-speaker .desc"), {
-  duration: 2,
   opacity: 1
 })
+
+images[0].onload = render;
+
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(images[card.frame], 0, 0);
+}
 
 
 gsap.timeline({
