@@ -6,12 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -32,7 +30,7 @@
     </div>
   </div>
 
-
+  <div class="cursor"></div>
 
   <header class="header">
     <div class="inner1">
@@ -49,8 +47,8 @@
               <span>Weitere Produkte</span>
             </a>
           </li>
-          <li class="nav-item button">
-            <a href="" class="cursorEffect">
+          <li class="nav-item cursorEffect">
+            <a href="">
               <span class="top">Jetzt Kaufen</span>
               <span class="bottom">Jetzt Kaufen</span>
             </a>
@@ -126,7 +124,7 @@
     <nav class="mo-gnb">
       <p class="title">Weitere Produkte</p>
       <div class="button">
-        <a href="" class="cursorEffect">
+        <a href="">
           <span class="top">Jetzt Kaufen</span>
         </a>
       </div>
@@ -134,9 +132,10 @@
   </header>
   <main class="container">
     <section class="section-speaker">
-      <!-- <div class="inner1 canvas">
+      <!-- <div class="canvas"> -->
+      <!-- <canvas id="canvas"></canvas> -->
 
-      </div> -->
+      <!-- </div> -->
       <div class="inner1">
         <!-- <div class="canvas-area"> -->
         <canvas id="canvas"></canvas>
@@ -172,7 +171,7 @@
       </div>
     </section>
     <section class="section-wireless">
-      <div class="bottom-gradient"></div>
+
       <div class="inner1">
         <div class="text-box">
           <h2 class="headline">
@@ -201,7 +200,22 @@
         </div>
       </div>
       <div class="bg">
-        <img src="./assets/images/wireless.svg" alt="">
+        <div class="bottom-gradient"></div>
+        <div class="image-content">
+          <div class="image-box">
+            <img src="./assets/images/wireless.png" alt="">
+            <div class="wave-left">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="wave-right">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section class="section-oldschool">
@@ -225,6 +239,39 @@
             <source media="(max-width: 2030px)" srcset="./assets/images/oldschool-2000.png">
             <img src="./assets/images/oldschool.png" alt="">
           </picture>
+          <div class="point point1">
+            <div class="dot">
+              <span></span>
+              <span class="center"></span>
+              <span></span>
+            </div>
+            <span class="text">Sub Out</span>
+          </div>
+          <div class="point point2">
+            <div class="dot">
+              <span class="center"></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="text">Sub Out</span>
+          </div>
+          <div class="point point3">
+            <div class="dot">
+              <span class="center"></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="text">ARC</span>
+          </div>
+          <div class="point point4">
+            <div class="dot">
+              <span class="center"></span>
+              <span>
+              </span>
+              <span></span>
+            </div>
+            <span class="text">Sub Out</span>
+          </div>
         </div>
       </div>
     </section>
@@ -331,8 +378,8 @@
               <p class="desc-spec">
                 In nur 3-5 Tagen bei dir • 1 Jahr Garantie • Nur 599€
               </p>
-              <div class="button">
-                <a href="" class="cursorEffect">
+              <div class="cursorEffect">
+                <a href="">
                   <span class="top">Jetzt Kaufen</span>
                   <span class="bottom">Jetzt Kaufen</span>
                 </a>
@@ -550,7 +597,7 @@
     </div>
   </div>
   <!-- <div class="cursor-area"> -->
-  <div class="cursor"></div>
+
   <!-- </div> -->
 
 </body>

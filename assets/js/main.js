@@ -35,25 +35,20 @@ $(".burgerBtn").click(function(){
   }
 })
 
-$(".button").mouseenter(function(e){
-  $(this).addClass("on")
-  // $(".cursor").addClass("isZoom")
-})
-$(".button").mouseleave(function(){
-  $(this).removeClass("on")
-  // $(".cursor").removeClass("isZoom")
-})
+
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext('2d');
 
-canvas.width = 2880;
-canvas.height = 1720;
+// canvas.width = 2880;
+canvas.width = 1124;
+// canvas.height = 1720;
+canvas.height = 1300;
 
 
 const frameCount = 90;
 
 const currentFrame = (idx) => {
-  console.log(`./assets/images/audio${idx.toString().padStart(3, '0')}.png`);
+  // console.log(`./assets/images/audio${idx.toString().padStart(3, '0')}.png`);
   return `./assets/images/audio${idx.toString().padStart(3, '0')}.png`;
 }
 const images = [];
@@ -67,32 +62,20 @@ for (let i = 0; i < frameCount; i++) {
   images.push(img);
 }
 
-// gsap.to(card, {
-//   frame: frameCount - 1,
-//   snap: 'frame',
-//   ease: 'none',
-//   scrollTrigger: {
-//     markers: true,
-//     trigger: '.canvas-area',
-//     scrub: 1,
-//     start: 'top top',
-//     end: 'bottom center',
-//   },
-//   onUpdate: render,
-// });
+
 
 images[0].onload = render;
-
+console.log( canvas.parentElement);
 function render() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width , canvas.height);
   ctx.drawImage(images[card.frame], 0, 0);
 }
 
-
+// 시작부터 시작?
 gsap.timeline({
   scrollTrigger:{
   trigger:$(".section-speaker"), 
-  start:"0% 0%",
+  start:"-5% 0%",
   end:"100% 50%",
   markers:true,
   scrub:1,
@@ -147,8 +130,11 @@ gsap.timeline({
   },
 })
 .to($(".section-wireless .text-box"), {
-  y: -140
+  y: -30
 })
+
+
+
 gsap.timeline({
   scrollTrigger:{
     trigger:$(".section-oldschool"), 
@@ -162,6 +148,17 @@ gsap.timeline({
 .to($(".section-oldschool .text-box"), {
   y: -100
 })
+
+$(".section-oldschool .dot").hover(function(e){
+  console.log('호버');
+  $(this).siblings(".text").addClass("hov")
+  },function(){
+      console.log('호버 제외');
+    $(this).siblings(".text").removeClass("hov")
+  })
+
+
+
 
 gsap.timeline({
   scrollTrigger:{
@@ -241,40 +238,25 @@ gsap.timeline({
     $(this).find(".title").toggleClass("on")
   })
 
-var posX = 0;
-var posY = 0;
-var mouseX = 0
-var mouseY = 0;
 
-
-TweenMax.to({}, 0.016, { 
-  repeat: -1,
-  onRepeat: function() {
-      posX += (mouseX - posX) / 9;
-      posY += (mouseY - posY) / 9;
-
-      TweenMax.set($(".cursor"), {
-        css: {
-          left: mouseX,
-          top: mouseY,
-        }
-      });
-    }
-
-  });
-
-
+// 너무 느린데?
 $("body").mousemove(function(e){
     mouseX = e.clientX;
     mouseY = e.clientY;
+    gsap.to(".cursor",{
+      x: mouseX,
+      y: mouseY
+  })
 })
 
 
-// 너무 깜박이는데..?
 $(".cursorEffect").hover(function(e){
   $(".cursor").addClass("isZoom")
+  $(this).addClass("on")
 })
 .mouseleave(function(){
   $(".cursor").removeClass("isZoom")
+    $(this).removeClass("on")
 })
+
   

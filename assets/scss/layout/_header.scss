@@ -68,7 +68,7 @@
           letter-spacing: .5px;
         }
 
-        &.button {
+        &.cursorEffect:not(&:nth-child(1)) {
           border: 2px solid #fff;
           border-radius: 112px;
           padding: 12px 28px;
