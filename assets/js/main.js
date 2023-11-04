@@ -1,3 +1,4 @@
+  $(window).trigger('scroll')
 
 const lenis = new Lenis()
 
@@ -130,8 +131,9 @@ gsap.timeline({
   },
 })
 .to($(".section-wireless .text-box"), {
-  y: -30
+  y: -140
 })
+
 
 
 
@@ -149,16 +151,18 @@ gsap.timeline({
   y: -100
 })
 
-$(".section-oldschool .dot").hover(function(e){
+
+
+// 아... 개짜증나네.... 아 왜 되다 안되다 하는거야...
+$(".section-oldschool .point").hover(function(e){
   console.log('호버');
-  $(this).siblings(".text").addClass("hov")
-  },function(){
-      console.log('호버 제외');
-    $(this).siblings(".text").removeClass("hov")
+  $(this).find(".text").addClass("hov")
+  $(this).find(".center").addClass("hov")
+  },function(e){
+    console.log('호버제외');
+    $(this).find(".text").removeClass("hov")
+    $(this).find(".center").removeClass("hov")
   })
-
-
-
 
 gsap.timeline({
   scrollTrigger:{
@@ -191,8 +195,10 @@ gsap.timeline({
 
 gsap.timeline({
   scrollTrigger:{ 
-    trigger: $(".section-features .grid-area"),
-    markers:false,
+    trigger: $(".section-features .grid-area"),  
+    start:"0% 100%",
+    end:"100% 100%",
+    markers:true,
     }
   }
 )
@@ -200,37 +206,32 @@ gsap.timeline({
 .to(".section-features .grid-area .top",{
   y: 0,     
   opacity: 1,
-}, 'a')
+})
 .to(".section-features .grid-area .top-desc", {
   y: 0,
   opacity: 1,
-  delay: 0.2
-}, 'a')
+  
+})
 .to(".section-features .grid-area .top-sub", {
   y: 0,
   opacity: 1,
-  delay: 0.5
-}, 'a')
+})
 .to(".section-features .grid-area .middle", {
   y: 0,
   opacity: 1,
-  delay: 0.8
-}, 'a')
+})
 .to(".section-features .grid-area .middle-desc", {
   y: 0,
   opacity: 1,
-  delay: 1.1
-}, 'a')
+})
 .to(".section-features .grid-area .middle-sub", {
   y: 0,
   opacity: 1,
-  delay: 1.4
-}, 'a')
+})
 .to(".section-features .grid-area .bottom", {
   y: 0,
   opacity: 1,
-  delay: 1.7
-}, 'a')
+})
 
   $('.section-faq .faq-item').click(function(e){
     e.preventDefault();
@@ -249,7 +250,7 @@ $("body").mousemove(function(e){
   })
 })
 
-
+// 줌이 안되고 있다.
 $(".cursorEffect").hover(function(e){
   $(".cursor").addClass("isZoom")
   $(this).addClass("on")

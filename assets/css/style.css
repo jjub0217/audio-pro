@@ -112,7 +112,7 @@ fieldset {
   position: fixed;
   z-index: 99999;
   top: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -235,11 +235,9 @@ fieldset {
 @keyframes opacityWidth {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 .header {
@@ -519,13 +517,14 @@ fieldset {
 .section-speaker .canvas {
   position: absolute;
   top: 0;
-  height: 100%;
+  height: 90%;
   width: 80%;
   border: 2px solid #f00;
   margin: 0 auto;
 }
 .section-speaker #canvas {
   position: absolute;
+  width: 70%;
 }
 .section-speaker .text-box {
   height: 100%;
@@ -607,74 +606,18 @@ fieldset {
 
 .section-wireless {
   height: 100vh;
-  position: relative;
   margin-bottom: 192px;
+  position: relative;
 }
 @media screen and (max-width: 991px) {
   .section-wireless {
     margin-bottom: 80px;
   }
 }
-.section-wireless .inner1 {
-  position: relative;
-  display: flex;
-  height: 100%;
-}
-.section-wireless .text-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-  z-index: 1;
-  padding: 0px 40px;
-  width: 100%;
-  transform: translateY(200px);
-}
-.section-wireless .text-box .headline {
-  color: #fff;
-  font-size: 60px;
-  font-weight: 500;
-}
-.section-wireless .text-box .desc {
-  color: #e0e0e0;
-  margin-top: 16px;
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 26px;
-  letter-spacing: 0.5px;
-  padding-left: 8px;
-  color: #e0e0e0;
-}
-@media screen and (max-width: 991px) {
-  .section-wireless .text-box .desc {
-    font-size: 16px;
-  }
-}
-.section-wireless .text-box .desc-small {
-  max-width: 720px;
-}
-@media screen and (max-width: 991px) {
-  .section-wireless .text-box .desc-small {
-    max-width: 480px;
-  }
-}
-.section-wireless .text-box .desc-spec {
-  margin-top: 48px;
-  display: flex;
-  align-items: center;
-  gap: 48px;
-}
 .section-wireless .bg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 1920px;
-  width: 100%;
-  height: 100%;
+  max-width: 1210px;
+  position: relative;
+  margin: 0 auto;
 }
 .section-wireless .bg .image-content {
   position: relative;
@@ -741,6 +684,57 @@ fieldset {
   bottom: 0%;
   left: 0%;
   right: 0%;
+}
+.section-wireless .inner1 {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 130px);
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.section-wireless .text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0px 40px;
+  width: 100%;
+}
+.section-wireless .text-box .headline {
+  color: #fff;
+  font-size: 60px;
+  font-weight: 500;
+}
+.section-wireless .text-box .desc {
+  color: #e0e0e0;
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+  padding-left: 8px;
+  color: #e0e0e0;
+}
+@media screen and (max-width: 991px) {
+  .section-wireless .text-box .desc {
+    font-size: 16px;
+  }
+}
+.section-wireless .text-box .desc-small {
+  max-width: 720px;
+}
+@media screen and (max-width: 991px) {
+  .section-wireless .text-box .desc-small {
+    max-width: 480px;
+  }
+}
+.section-wireless .text-box .desc-spec {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
 }
 
 .section-oldschool {
@@ -819,17 +813,32 @@ fieldset {
      object-fit: cover;
   height: 100%;
 }
-.section-oldschool .bg .point {
+.section-oldschool .bg .point1 {
   position: absolute;
+  top: 40%;
+  left: 27%;
 }
-.section-oldschool .bg .point .dot {
+.section-oldschool .bg .point2 {
   position: absolute;
-  z-index: 2;
+  top: 35%;
+  left: 39%;
+}
+.section-oldschool .bg .point3 {
+  position: absolute;
+  top: 42%;
+  left: 52%;
+}
+.section-oldschool .bg .point4 {
+  position: absolute;
+  top: 48%;
+  left: 41%;
+}
+.section-oldschool .bg .dot {
   width: 24px;
   height: 24px;
-  border: 1px solid;
+  position: relative;
 }
-.section-oldschool .bg .point .dot span:nth-child(1) {
+.section-oldschool .bg .dot span.center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -838,8 +847,25 @@ fieldset {
   height: 45%;
   border-radius: 50%;
   background: #fff;
+  z-index: 2;
 }
-.section-oldschool .bg .point .dot span:nth-child(2) {
+.section-oldschool .bg .dot span.center::after {
+  content: "";
+  opacity: 0;
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+  background: #fff;
+  transition: width 0.2s;
+}
+.section-oldschool .bg .dot span.center.hov::after {
+  content: "";
+  opacity: 1;
+  width: 265px;
+}
+.section-oldschool .bg .dot span:nth-child(2) {
   width: 10%;
   height: 10%;
   position: absolute;
@@ -850,7 +876,7 @@ fieldset {
   border: 1px solid #fff;
   animation: scale3 2s infinite;
 }
-.section-oldschool .bg .point .dot span:nth-child(3) {
+.section-oldschool .bg .dot span:nth-child(3) {
   width: 10%;
   height: 10%;
   position: absolute;
@@ -861,43 +887,21 @@ fieldset {
   border: 1px solid #fff;
   animation: scale2 2s infinite;
 }
-.section-oldschool .bg .point .text {
+.section-oldschool .bg .text {
   opacity: 0;
-  color: #fff;
-  text-align: right;
-  flex-direction: column;
-  align-items: flex-end;
-  display: flex;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 24px;
-}
-.section-oldschool .bg .point .text.hov {
-  opacity: 1;
-  width: 208px;
-}
-.section-oldschool .bg .point .text.hov::after {
-  content: "";
+  position: absolute;
+  left: 50%;
+  top: -50%;
   display: block;
-  width: 300px;
-  height: 1px;
-  background: #fff;
+  width: 260px;
+  text-align: right;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
 }
-.section-oldschool .bg .point1 {
-  top: 40%;
-  left: 27%;
-}
-.section-oldschool .bg .point2 {
-  top: 35%;
-  left: 39%;
-}
-.section-oldschool .bg .point3 {
-  top: 42%;
-  left: 52%;
-}
-.section-oldschool .bg .point4 {
-  top: 48%;
-  left: 41%;
+.section-oldschool .bg .text.hov {
+  opacity: 1;
+  transition: opacity 0.3s ease-out 0.5s;
 }
 
 .section-features {
@@ -913,7 +917,7 @@ fieldset {
 .section-features .inner2 {
   margin: 0 auto;
   padding: 112px 40px;
-  max-width: 1040px;
+  max-width: 1140px;
 }
 .section-features .headline {
   margin-bottom: 32px;
@@ -1103,7 +1107,7 @@ fieldset {
 .section-cta .cta-wrapper {
   background: url("../images/cta-bg.png") no-repeat;
   background-size: cover;
-  height: calc(100vh - 80px);
+  height: 100vh;
   position: sticky;
   top: 0;
 }

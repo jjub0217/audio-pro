@@ -15,7 +15,7 @@
   .canvas {
     position: absolute;
     top: 0;
-    height: 100%;
+    height: 90%;
     width: 80%;
     border: 2px solid #f00;
     margin: 0 auto;
@@ -23,6 +23,7 @@
 
   #canvas {
     position: absolute;
+    width: 70%;
   }
 
   .text-box {
@@ -115,83 +116,18 @@
 
 .section-wireless {
   height: 100vh;
-  position: relative;
   margin-bottom: 192px;
+  position: relative;
 
   @include mobile {
     margin-bottom: 80px;
   }
 
-  .inner1 {
-    position: relative;
-    display: flex;
-    height: 100%;
-
-  }
-
-  .text-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    position: relative;
-    z-index: 1;
-    padding: 0px 40px;
-    width: 100%;
-    transform: translateY(200px);
-
-    .headline {
-      color: #fff;
-      font-size: 60px;
-      font-weight: 500;
-    }
-
-    .desc {
-      color: #e0e0e0;
-      margin-top: 16px;
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 26px;
-      letter-spacing: .5px;
-      padding-left: 8px;
-      color: #e0e0e0;
-
-      @include mobile {
-        font-size: 16px;
-      }
-
-
-      &-small {
-        max-width: 720px;
-
-        @include mobile {
-          max-width: 480px;
-        }
-      }
-
-      &-spec {
-        margin-top: 48px;
-        display: flex;
-        align-items: center;
-        gap: 48px;
-        // position: relative;
-        // z-index: 1;
-      }
-    }
-  }
-
   .bg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 1920px;
-    width: 100%;
-    height: 100%;
-
+    max-width: 1210px;
+    position: relative;
+    margin: 0 auto;
 
     .image-content {
       position: relative;
@@ -268,6 +204,66 @@
       right: 0%;
     }
   }
+
+  .inner1 {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 130px);
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0px 40px;
+    width: 100%;
+
+    .headline {
+      color: #fff;
+      font-size: 60px;
+      font-weight: 500;
+    }
+
+    .desc {
+      color: #e0e0e0;
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 26px;
+      letter-spacing: .5px;
+      padding-left: 8px;
+      color: #e0e0e0;
+
+      @include mobile {
+        font-size: 16px;
+      }
+
+
+      &-small {
+        max-width: 720px;
+
+        @include mobile {
+          max-width: 480px;
+        }
+      }
+
+      &-spec {
+        margin-top: 48px;
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        // position: relative;
+        // z-index: 1;
+      }
+    }
+  }
+
+
 }
 
 .section-oldschool {
@@ -285,7 +281,6 @@
       flex-direction: column-reverse;
       align-items: center;
       padding: 112px 40px;
-
       width: 800px;
     }
   }
@@ -332,6 +327,7 @@
     }
   }
 
+  // 이미지가 짤린다...
   .bg {
     position: absolute;
     top: 64px;
@@ -353,103 +349,112 @@
       }
     }
 
-    .point {
-      position: absolute;
-
-
-      .dot {
-        position: absolute;
-        z-index: 2;
-        width: 24px;
-        height: 24px;
-        border: 1px solid;
-
-        span {
-          &:nth-child(1) {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 45%;
-            height: 45%;
-            border-radius: 50%;
-            background: #fff;
-          }
-
-          &:nth-child(2) {
-            width: 10%;
-            height: 10%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            border: 1px solid #fff;
-            animation: scale3 2s infinite;
-          }
-
-          &:nth-child(3) {
-            width: 10%;
-            height: 10%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            border: 1px solid #fff;
-            animation: scale2 2s infinite;
-          }
-        }
-      }
-
-
-      .text {
-        opacity: 0;
-        color: #fff;
-        text-align: right;
-        flex-direction: column;
-        align-items: flex-end;
-        display: flex;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 24px;
-      }
-
-      .text {
-        &.hov {
-          opacity: 1;
-          width: 208px;
-
-          &::after {
-            content: "";
-            display: block;
-            width: 300px;
-            height: 1px;
-            background: #fff;
-          }
-        }
-      }
-
-    }
-
     .point1 {
+      position: absolute;
       top: 40%;
       left: 27%;
     }
 
     .point2 {
+      position: absolute;
       top: 35%;
       left: 39%;
     }
 
     .point3 {
+      position: absolute;
       top: 42%;
       left: 52%;
     }
 
     .point4 {
+      position: absolute;
       top: 48%;
       left: 41%;
+    }
+
+    .dot {
+      width: 24px;
+      height: 24px;
+      position: relative;
+
+      span {
+        &.center {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 45%;
+          height: 45%;
+          border-radius: 50%;
+          background: #fff;
+          z-index: 2;
+
+          &::after {
+            content: "";
+            opacity: 0;
+            display: block;
+            position: absolute;
+            top: 50%;
+            width: 1px;
+            height: 1px;
+            background: #fff;
+            transition: width 0.2s;
+          }
+
+          &.hov {
+            &::after {
+              content: "";
+              opacity: 1;
+              width: 265px;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          width: 10%;
+          height: 10%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          border: 1px solid #fff;
+          animation: scale3 2s infinite;
+
+        }
+
+        &:nth-child(3) {
+          width: 10%;
+          height: 10%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          border: 1px solid #fff;
+          animation: scale2 2s infinite;
+
+        }
+      }
+    }
+
+    .text {
+      opacity: 0;
+      position: absolute;
+      left: 50%;
+      top: -50%;
+      display: block;
+      width: 260px;
+      text-align: right;
+      font-size: 18px;
+      line-height: 24px;
+      color: #fff;
+
+      &.hov {
+        opacity: 1;
+        transition: opacity 0.3s ease-out 0.5s;
+      }
     }
 
   }
@@ -467,7 +472,7 @@
   .inner2 {
     margin: 0 auto;
     padding: 112px 40px;
-    max-width: 1040px;
+    max-width: 1140px;
   }
 
   .headline {
@@ -689,7 +694,8 @@
   .cta-wrapper {
     background: url("../images/cta-bg.png") no-repeat;
     background-size: cover;
-    height: calc(100vh - 80px);
+    // height: calc(100vh - 80px);
+    height: 100vh;
     position: sticky;
     top: 0;
   }
