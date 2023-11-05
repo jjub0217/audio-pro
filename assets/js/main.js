@@ -153,42 +153,14 @@ $(".section-oldschool .point").hover(function(e){
     $(this).find(".center").removeClass("hov")
   })
 
-gsap.timeline({
-  scrollTrigger:{
-  trigger:$(".section-cta"), 
-  start:"0% 0%",
-  end:"100% 50%",
-  markers:false,
-  scrub:1,
-  },
-})
-.addLabel('a')
-.to($(".section-cta .right .desc"), {
-  opacity: 0
-}, 'a')
-.to($(".section-cta .right .headline"), {
-  duration: 1,
-  opacity: 0
-}, 'a')
-.addLabel('b')
-.to($(".section-cta .cta-wrapper"), {
-  background: "transparent"
-}, 'b')
-.to($(".section-cta .left .headline"), {
-  opacity: 1
-}, 'b')
-.to($(".section-cta .left .desc"), {
-  duration: 1,
-  opacity: 1
-}, 'b')
 
 
 
 
 const canvas2 = document.querySelector("#canvas2");
 const ctx2 = canvas2.getContext('2d');
-canvas2.width = 700;
-canvas2.height = 700;
+canvas2.width = 2880;
+canvas2.height = 1600;
 const frameCount2 = 91;
 const currentFrame2 = (idx) => {
   // console.log(`./assets/images/audio${idx.toString().padStart(3, '0')}.png`);
@@ -211,6 +183,44 @@ function render2() {
 
 
 
+gsap.timeline({
+  scrollTrigger:{
+  trigger:$(".section-cta"), 
+  start:"0% 0%",
+  end:"100% 50%",
+  markers:true,
+  scrub:1,
+  },
+  onUpdate: render2,
+})
+.addLabel('a')
+.to(card2, {
+  duration: 1,
+  frame: frameCount2 - 1,
+  snap: 'frame',
+  ease: 'none',
+},'a')
+.to($(".section-cta .right .desc"), {
+  opacity: 0
+}, 'a')
+.to($(".section-cta .right .headline"), {
+  duration: 1,
+  opacity: 0
+}, 'a')
+.addLabel('b')
+.to($(".section-cta .cta-wrapper"), {
+  background: "transparent"
+}, 'b')
+.to($(".section-cta .left .headline"), {
+  opacity: 1
+}, 'b')
+.to($(".section-cta .left .desc"), {
+  duration: 1,
+  opacity: 1
+}, 'b')
+
+
+
 
 
 gsap.timeline({
@@ -223,12 +233,6 @@ gsap.timeline({
   }
 )
 .addLabel('a')
-.to(card2, {
-  duration: 1,
-  frame: frameCount2 - 1,
-  snap: 'frame',
-  ease: 'none',
-},'a')
 .to(".section-features .grid-area .top",{
   y: 0,     
   opacity: 1,
