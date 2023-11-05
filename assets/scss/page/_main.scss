@@ -12,18 +12,20 @@
     top: 0;
   }
 
-  .canvas {
-    position: absolute;
-    top: 0;
-    height: 90%;
-    width: 80%;
-    border: 2px solid #f00;
-    margin: 0 auto;
-  }
+  // .canvas {
+  //   position: absolute;
+  //   top: 0;
+  //   height: 90%;
+  //   width: 80%;
+  //   border: 2px solid #f00;
+  //   margin: 0 auto;
+  // }
 
-  #canvas {
+  #canvas1 {
     position: absolute;
-    width: 70%;
+    top: 11%;
+    // left: -13%;
+    // width: 70%;
   }
 
   .text-box {
@@ -123,86 +125,34 @@
     margin-bottom: 80px;
   }
 
+  .bottom-gradient {
+    width: 100%;
+    height: 15rem;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), #1d1d1d 85%);
+    position: absolute;
+    z-index: 1;
+    top: auto;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+  }
+
   .bg {
+    height: 100%;
 
-    max-width: 1210px;
-    position: relative;
-    margin: 0 auto;
+    .left-large,
+    .left-middle,
+    .left-center,
+    .right-large,
+    .right-middle,
+    .right-center {
+      animation: gScale 2s infinite;
 
-    .image-content {
-      position: relative;
-      width: 100%;
-
-      .image-box {
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-
-    }
-
-    .wave-left,
-    .wave-right {
-      position: absolute;
-      top: 51.5%;
-      width: 4.9%;
-      height: 8.8%;
-
-
-      span {
-        display: block;
-        animation: scale 2s infinite;
-        border: 0.1px solid #fff;
-
-        &:nth-child(1) {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          border-radius: 50%;
-        }
-
-        &:nth-child(2) {
-          width: 67%;
-          height: 67%;
-          position: absolute;
-          top: 16%;
-          left: 16%;
-          border-radius: 50%;
-        }
-
-        &:nth-child(3) {
-          width: 34%;
-          height: 34%;
-          position: absolute;
-          top: 33%;
-          left: 33%;
-          border-radius: 50%;
-        }
+      path {
+        animation: pathScale 2s infinite;
       }
     }
 
-    .wave-left {
-      left: 20%;
-    }
-
-    .wave-right {
-      right: 20%;
-    }
-
-    .bottom-gradient {
-      width: 100%;
-      height: 15rem;
-      background-image: linear-gradient(rgba(255, 255, 255, 0), #1d1d1d 85%);
-      position: absolute;
-      top: auto;
-      bottom: 0%;
-      left: 0%;
-      right: 0%;
-    }
   }
 
   .inner1 {
@@ -420,7 +370,7 @@
           transform: translate(-50%, -50%);
           border-radius: 50%;
           border: 1px solid #fff;
-          animation: scale3 2s infinite;
+          animation: scale1 2s infinite;
 
         }
 
@@ -691,10 +641,10 @@
 .section-cta {
   height: 300vh;
 
+
   .cta-wrapper {
     background: url("../images/cta-bg.png") no-repeat;
     background-size: cover;
-    // height: calc(100vh - 80px);
     height: 100vh;
     position: sticky;
     top: 0;
@@ -703,6 +653,11 @@
   .inner1 {
     height: 100%;
     display: flex;
+    position: relative;
+
+    #canvas2 {
+      position: absolute;
+    }
 
     @include mobile {
       padding: 112px 32px;

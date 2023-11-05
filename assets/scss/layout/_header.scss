@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding: 0 40px;
 
   .inner1 {
     width: 100%;
@@ -17,27 +18,28 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, .25);
-    padding-left: 40px;
-    padding-right: 53px;
+    // padding-left: 40px;
+    // padding-right: 53px;
 
     // max-width: 1200px;
     @include mobile {
-      padding-left: 32px;
-      padding-right: 32px;
+      // padding-left: 32px;
+      // padding-right: 32px;
     }
 
     // min-width 1440
     @include tablet {
       // max-width: 1360px;
-      padding-left: 20px;
-      padding-right: 40px;
+      // padding-left: 20px;
+      // padding-left: 40px;
+      // padding-right: 40px;
     }
 
     // min-width 1920
     @include desktop {
       // max-width: 1440px;
-      padding-left: 25px;
-      padding-right: 45px;
+      // padding-left: 25px;
+      // padding-right: 45px;
 
     }
 
@@ -46,6 +48,10 @@
   .logo {
     width: 144px;
     cursor: pointer;
+
+    img {
+      width: 144px;
+    }
   }
 
   .gnb {

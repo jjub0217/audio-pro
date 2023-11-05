@@ -1,10 +1,6 @@
-  $(window).trigger('scroll')
+$(window).trigger('scroll')
 
 const lenis = new Lenis()
-
-// lenis.on('scroll', (e) => {
-//   console.log(e)
-// })
 
 function raf(time) {
   lenis.raf(time)
@@ -37,41 +33,40 @@ $(".burgerBtn").click(function(){
 })
 
 
-const canvas = document.querySelector("#canvas");
-const ctx = canvas.getContext('2d');
+
+const canvas1 = document.querySelector("#canvas1");
+const ctx1 = canvas1.getContext('2d');
 
 // canvas.width = 2880;
-canvas.width = 1124;
+// canvas1.width = 1124;
+canvas1.width = 2880;
 // canvas.height = 1720;
-canvas.height = 1300;
+canvas1.height = 1600;
+const frameCount1 = 90;
 
-
-const frameCount = 90;
-
-const currentFrame = (idx) => {
+const currentFrame1 = (idx) => {
   // console.log(`./assets/images/audio${idx.toString().padStart(3, '0')}.png`);
   return `./assets/images/audio${idx.toString().padStart(3, '0')}.png`;
 }
-const images = [];
-const card = {
+const images1 = [];
+const card1 = {
   frame: 0,
 };
 
-for (let i = 0; i < frameCount; i++) {
+for (let i = 0; i < frameCount1; i++) {
   const img = new Image();
-  img.src = currentFrame(i + 1);
-  images.push(img);
+  img.src = currentFrame1(i + 1);
+  images1.push(img);
 }
 
+images1[0].onload = render1;
 
-
-images[0].onload = render;
-console.log( canvas.parentElement);
-function render() {
-  ctx.clearRect(0, 0, canvas.width , canvas.height);
-  ctx.drawImage(images[card.frame], 0, 0);
+function render1() {
+  ctx1.clearRect(0, 0, canvas1.width , canvas1.height);
+  ctx1.drawImage(images1[card1.frame], 0, 0);
 }
-
+console.log(window.outerWidth);
+console.log(window.innerWidth);
 // 시작부터 시작?
 gsap.timeline({
   scrollTrigger:{
@@ -81,12 +76,12 @@ gsap.timeline({
   markers:true,
   scrub:1,
   },
-    onUpdate: render,
+    onUpdate: render1,
 })
 .addLabel('a')
-.to(card, {
+.to(card1, {
   duration: 1,
-  frame: frameCount - 1,
+  frame: frameCount1 - 1,
   snap: 'frame',
   ease: 'none',
 },'a')
@@ -94,7 +89,7 @@ gsap.timeline({
   height: 80
 }, 'a')
 .to($(".header .inner1"), {
-   borderBottomWidth:0,
+  borderBottomWidth:0,
 }, 'a')
 .to($(".header .logo"), {
   scale: 0.78
@@ -112,12 +107,6 @@ gsap.timeline({
   opacity: 1
 })
 
-images[0].onload = render;
-
-function render() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(images[card.frame], 0, 0);
-}
 
 
 gsap.timeline({
@@ -193,16 +182,53 @@ gsap.timeline({
   opacity: 1
 }, 'b')
 
+
+
+
+const canvas2 = document.querySelector("#canvas2");
+const ctx2 = canvas2.getContext('2d');
+canvas2.width = 700;
+canvas2.height = 700;
+const frameCount2 = 91;
+const currentFrame2 = (idx) => {
+  // console.log(`./assets/images/audio${idx.toString().padStart(3, '0')}.png`);
+  return `./assets/images/container${idx.toString().padStart(3, '0')}.png`;
+}
+const images2 = [];
+const card2 = {
+  frame: 0,
+};
+for (let i = 0; i < frameCount2; i++) {
+  const img = new Image();
+  img.src = currentFrame2(i + 1);
+  images2.push(img);
+}
+images2[0].onload = render2;
+function render2() {
+  ctx2.clearRect(0, 0, canvas2.width , canvas2.height);
+  ctx2.drawImage(images2[card2.frame], 0, 0);
+}
+
+
+
+
+
 gsap.timeline({
   scrollTrigger:{ 
     trigger: $(".section-features .grid-area"),  
     start:"0% 100%",
     end:"100% 100%",
-    markers:true,
+    markers:false,
     }
   }
 )
 .addLabel('a')
+.to(card2, {
+  duration: 1,
+  frame: frameCount2 - 1,
+  snap: 'frame',
+  ease: 'none',
+},'a')
 .to(".section-features .grid-area .top",{
   y: 0,     
   opacity: 1,
@@ -233,6 +259,11 @@ gsap.timeline({
   opacity: 1,
 })
 
+
+
+
+
+
   $('.section-faq .faq-item').click(function(e){
     e.preventDefault();
     $(this).find('.sub-list').toggleClass('on')
@@ -240,7 +271,6 @@ gsap.timeline({
   })
 
 
-// 너무 느린데?
 $("body").mousemove(function(e){
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -249,6 +279,9 @@ $("body").mousemove(function(e){
       y: mouseY
   })
 })
+
+
+
 
 // 줌이 안되고 있다.
 $(".cursorEffect").hover(function(e){
