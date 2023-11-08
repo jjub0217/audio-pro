@@ -61,18 +61,20 @@ $(".burgerBtn").click(function(){
  */
 const canvas1 = document.querySelector("#canvas1");
 const ctx1 = canvas1.getContext('2d');
-canvas1.width = 2880;
-canvas1.height = 1600;
-const frameCount1 = 90;
+canvas1.width =  window.innerWidth > 479 ? 2880 : 1080;
+canvas1.height = window.innerWidth > 479 ? 1600 : 1920;
+const frameCount1 = window.innerWidth > 479 ? 90 : 41;
 
-
-const currentFrame1 = (idx) => {
-  return `./assets/images/audio${idx.toString().padStart(3, '0')}.png`;
-}
 const images1 = [];
 const card1 = {
   frame: 0,
 };
+
+const currentFrame1 = (idx) => {
+  return window.innerWidth > 479 ?  `./assets/images/audio${idx.toString().padStart(3, '0')}.png` :
+   `./assets/images/move1-${idx.toString().padStart(3, '0')}.png` ;
+}
+
 
 for (let i = 0; i < frameCount1; i++) {
   const img = new Image();
@@ -110,6 +112,10 @@ gsap.timeline({
   frame: frameCount1 - 1,
   snap: 'frame',
   ease: 'none',
+},'a')
+.to($("#canvas1"),{
+  yPercent: window.innerWidth > 479 ? 0 :-20, 
+  duration: 1,
 },'a')
 .to($(".header"), {
   height: 80
@@ -162,15 +168,15 @@ gsap.timeline({
 gsap.timeline({
   scrollTrigger:{
     trigger:$(".section-oldschool"), 
-    start:"0% 100%",
+    start:"0% 0%",
     end:"100% 0%",
-    markers:false,
+    markers:true,
     scrub:1,
     duration: 5
   },
 })
 .to($(".section-oldschool .text-box"), {
-  y: -100
+  y: -100,
 })
 
 
@@ -196,7 +202,7 @@ $(".section-oldschool .point").hover(function(e){
  * 
  */
 
-const canvas2 = document.querySelector("#canvas2"); // 479　초과
+const canvas2 = document.querySelector("#canvas2"); 
 const ctx2 = canvas2.getContext('2d');
 
 canvas2.width = window.innerWidth > 479 ? 2880 : 1080;
@@ -236,24 +242,22 @@ function render2() {
 gsap.timeline({
   scrollTrigger:{
   trigger:$(".section-cta"), 
-  start:"0% 10%",
+  start:"0% 0%",
   end:"100% 50%",
-  markers:true,
+  markers:false,
   scrub:1,
   },
   onUpdate: render2,
 })
 .addLabel('a')
 .to(card2, {
-  //???? 왜 y퍼센트가 안움직일까?
-  yPercent: -50, 
   duration: 1,
   frame: frameCount2 - 1,
   snap: 'frame',
   ease: 'none',
 },'a')
 .to($("#canvas2"),{
-  yPercent: -50, 
+  yPercent: window.innerWidth > 479  ? 0 : -80, 
   duration: 1,
 },'a')
 .to($(".section-cta .right .desc"), {

@@ -13,11 +13,22 @@
     position: sticky;
     top: 0;
     overflow: hidden;
+
+    @include MinDevice {
+      height: 100vh;
+    }
   }
 
   #canvas1 {
     position: absolute;
     top: 11%;
+
+    @include MinDevice {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56vw;
+    }
   }
 
   .text-box {
@@ -41,6 +52,7 @@
 
     @include MinDevice {
       padding: 0 24px;
+      transform: translateY(-10%);
     }
   }
 
@@ -82,6 +94,10 @@
       @include mobile {
         right: auto;
         width: 100%;
+      }
+
+      @include MinDevice {
+        justify-content: flex-end;
       }
 
       .headline {
@@ -141,9 +157,7 @@
   margin-bottom: 192px;
   position: relative;
 
-  @include MinDevice {
-    height: 720px;
-  }
+
 
   @include mobile {
     margin-bottom: 80px;
@@ -194,7 +208,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0px 40px;
     width: 100%;
 
     @include mobile {
@@ -253,8 +266,12 @@
         margin-top: 48px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+
         gap: 48px;
+
+        @include MinDevice {
+          justify-content: space-between;
+        }
       }
     }
   }
@@ -264,16 +281,18 @@
 
 .section-oldschool {
   height: 100vh;
+  margin-bottom: 100px;
 
   @include MinDevice {
     height: auto;
-    padding: 80px 24px;
+    padding: 0px 24px;
   }
 
 
   .inner1 {
     position: relative;
-    height: 100%;
+    height: 115vh;
+    overflow: hidden;
 
     @include mobile {
       display: flex;
@@ -283,7 +302,7 @@
     }
 
     @include MinDevice {
-      padding: 0 24px;
+      padding: 0;
     }
   }
 
@@ -294,12 +313,9 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    height: auto;
+    height: 100%;
     padding: 0 40px;
 
-    @include MinDevice {
-      padding: 0;
-    }
 
     @include mobile {
       padding-right: 32px;
@@ -316,6 +332,10 @@
       height: 100%;
     }
 
+    @include MinDevice {
+      padding: 0;
+      justify-content: flex-end;
+    }
 
     .headline {
       color: #fff;
@@ -350,11 +370,10 @@
     position: absolute;
     top: 64px;
     right: 0;
-    height: 960px;
+    height: 800px;
 
     @include mobile {
       height: auto;
-      position: static;
       width: 100%;
     }
 
@@ -510,6 +529,7 @@
 
     @include MinDevice {
       max-width: none;
+      padding: 0 24px;
     }
   }
 
@@ -770,6 +790,10 @@
 .section-cta {
   height: 300vh;
 
+  @include MinDevice {
+    padding-top: 150px;
+  }
+
   .cta-wrapper {
     background: url("../images/cta-bg.png") no-repeat;
     background-size: cover;
@@ -788,16 +812,16 @@
   #canvas2 {
     display: block;
     position: absolute;
-    top: 9%;
+    top: 30%;
     left: 0;
-    height: 1096px;
-    width: 1860px;
+    width: 75vw;
+    height: 40vw;
 
     @include MinDevice {
       width: 55vw;
       height: 55vw;
       left: 50%;
-      transform: translate(-50%, 70%);
+      transform: translate(-50%, 30%);
     }
   }
 
@@ -814,13 +838,62 @@
 
   }
 
+  .right,
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    transform: translateY(50%);
 
+    @include mobile {
+      width: 100%
+    }
+
+
+
+    .headline {
+      font-weight: 500;
+    }
+
+    .desc {
+      max-width: 480px;
+
+      &-small {
+        letter-spacing: 0.5px;
+        margin-top: 16px;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 300;
+
+        br {
+          display: none;
+        }
+
+        @include mobile {
+          font-size: 16px;
+
+          br {
+            display: block;
+          }
+        }
+      }
+
+      &-spec {
+        margin-top: 30px;
+      }
+    }
+  }
 
   .left {
     padding-left: 64px;
 
     @include mobile {
       padding-left: 0;
+    }
+
+    @include MinDevice {
+      transform: translateY(-30%);
     }
 
     .headline {
@@ -890,6 +963,10 @@
     padding-left: 104px;
     opacity: 1;
 
+    @include MinDevice {
+      transform: translateY(0%);
+    }
+
     @include mobile {
       padding-left: 0;
     }
@@ -897,6 +974,8 @@
     @include tablet {
       padding-left: 116px;
     }
+
+
 
 
     .headline {
@@ -916,50 +995,7 @@
   }
 
 
-  .right,
-  .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
 
-
-    @include mobile {
-      width: 100%
-    }
-
-    .headline {
-      font-weight: 500;
-    }
-
-    .desc {
-      max-width: 480px;
-
-      &-small {
-        letter-spacing: 0.5px;
-        margin-top: 16px;
-        font-size: 18px;
-        line-height: 24px;
-        font-weight: 300;
-
-        br {
-          display: none;
-        }
-
-        @include mobile {
-          font-size: 16px;
-
-          br {
-            display: block;
-          }
-        }
-      }
-
-      &-spec {
-        margin-top: 30px;
-      }
-    }
-  }
 
 }
 
