@@ -2,6 +2,8 @@
   margin-top: 96px;
 }
 
+
+//???? 이미지가 왤케 작아
 .section-speaker {
   height: calc(300vh - 96px);
   position: relative;
@@ -10,6 +12,7 @@
     height: calc(100vh - 96px);
     position: sticky;
     top: 0;
+    overflow: hidden;
   }
 
   #canvas1 {
@@ -26,31 +29,47 @@
     padding: 112px 40px;
     position: relative;
 
+
+
     @include mobile {
       justify-content: center;
       align-items: flex-start;
       position: relative;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    @include MinDevice {
+      padding: 0 24px;
     }
   }
 
   .headline {
-    color: #fff;
-    font-size: 90px;
-    font-weight: 500;
+    &1 {
+      &-desc {
+        color: #a5a5a5;
+        letter-spacing: .5px;
+        font-size: 18px;
+        margin-bottom: 8px;
+        font-weight: 300;
+      }
 
-    &-small {
-      color: #a5a5a5;
-      letter-spacing: .5px;
-      font-size: 18px;
-      margin-bottom: 8px;
-      font-weight: 300;
+      .headline {
+        color: #fff;
+        font-size: 90px;
+        font-weight: 500;
+
+        @include mobile {
+          font-size: 75px;
+        }
+
+        @include MinDevice {
+          font-size: 48px;
+        }
+      }
     }
-  }
 
-  .desc {
-    opacity: 0;
-
-    &-box {
+    &2 {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -62,53 +81,69 @@
 
       @include mobile {
         right: auto;
-        width: 50%;
+        width: 100%;
       }
-    }
 
-    &-small,
-    &-spec {
-      max-width: 480px;
-      margin-top: 16px;
-      color: #e0e0e0;
-      letter-spacing: .5px;
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 26px;
+      .headline {
+        opacity: 0;
+        color: #fff;
+        font-size: 48px;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        line-height: 1.4;
 
-      @include mobile {
-        font-size: 16px;
+
+        @include MinDevice {
+          font-size: 32px;
+        }
       }
-    }
 
-    &-small {
-      @include mobile {
-        br {
-          display: none;
+      .desc {
+        opacity: 0;
+
+        &-small,
+        &-spec {
+          max-width: 480px;
+          margin-top: 16px;
+          color: #e0e0e0;
+          letter-spacing: .5px;
+          font-size: 18px;
+          font-weight: 300;
+          line-height: 26px;
+
+        }
+
+        &-small {
+          @include mobile {
+            font-size: 16px;
+
+            br {
+              display: none;
+            }
+          }
+
+        }
+
+        &-spec {
+          margin-top: 30px;
         }
       }
     }
 
-    &-title {
-      opacity: 0;
-      color: #fff;
-      font-size: 48px;
-      font-weight: 700;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-
-    &-spec {
-      margin-top: 30px;
-    }
-
   }
+
+
 }
 
 .section-wireless {
   height: 100vh;
   margin-bottom: 192px;
   position: relative;
+
+  @include MinDevice {
+    height: 720px;
+  }
 
   @include mobile {
     margin-bottom: 80px;
@@ -162,10 +197,29 @@
     padding: 0px 40px;
     width: 100%;
 
+    @include mobile {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+
+    @include MinDevice {
+      padding: 0 24px;
+    }
+
+
     .headline {
       color: #fff;
       font-size: 60px;
       font-weight: 500;
+
+      @include mobile {
+        font-size: 48px;
+      }
+
+      @include MinDevice {
+        font-size: 32px;
+        word-break: break-all;
+      }
     }
 
     .desc {
@@ -182,6 +236,10 @@
         font-size: 16px;
       }
 
+      @include MinDevice {
+        padding-left: 0;
+      }
+
 
       &-small {
         max-width: 720px;
@@ -195,9 +253,8 @@
         margin-top: 48px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 48px;
-        // position: relative;
-        // z-index: 1;
       }
     }
   }
@@ -207,8 +264,11 @@
 
 .section-oldschool {
   height: 100vh;
-  margin-bottom: 80px;
-  overflow: hidden;
+
+  @include MinDevice {
+    height: auto;
+    padding: 80px 24px;
+  }
 
 
   .inner1 {
@@ -220,7 +280,10 @@
       flex-direction: column-reverse;
       align-items: center;
       padding: 112px 40px;
-      width: 800px;
+    }
+
+    @include MinDevice {
+      padding: 0 24px;
     }
   }
 
@@ -233,6 +296,15 @@
     width: 100%;
     height: auto;
     padding: 0 40px;
+
+    @include MinDevice {
+      padding: 0;
+    }
+
+    @include mobile {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
 
     @include tablet {
       padding: 112px 40px;
@@ -249,6 +321,10 @@
       color: #fff;
       font-size: 72px;
       font-weight: 500;
+
+      @include MinDevice {
+        font-size: 42px;
+      }
     }
 
     .desc {
@@ -258,10 +334,13 @@
         font-size: 18px;
         font-weight: 300;
         line-height: 26px;
-
         margin-top: 16px;
         padding-left: 8px;
         max-width: 480px;
+
+        @include mobile {
+          font-size: 16px;
+        }
       }
     }
   }
@@ -276,6 +355,7 @@
     @include mobile {
       height: auto;
       position: static;
+      width: 100%;
     }
 
     picture {
@@ -285,6 +365,12 @@
       img {
         object-fit: cover;
         height: 100%;
+      }
+    }
+
+    .point {
+      @include MinDevice {
+        display: none;
       }
     }
 
@@ -408,10 +494,23 @@
     margin-bottom: 48px;
   }
 
+  @include MinDevice {
+    margin-bottom: 0;
+  }
+
   .inner2 {
     margin: 0 auto;
     padding: 112px 40px;
     max-width: 1140px;
+
+    @include mobile {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+
+    @include MinDevice {
+      max-width: none;
+    }
   }
 
   .headline {
@@ -419,6 +518,10 @@
     color: #fff;
     font-size: 36px;
     font-weight: 500;
+
+    @include MinDevice {
+      font-size: 24px;
+    }
   }
 
   .grid-area {
@@ -432,18 +535,33 @@
       grid-template-rows: repeat(4, 336px);
     }
 
-    // w-layout-cell , cell, _2x1
+    @include MinDevice {
+      grid-template-rows: auto auto auto auto;
+      grid-template-columns: 1fr;
+    }
+
+
 
     .space {
       height: 336px;
       border-radius: 8px;
       overflow: hidden;
 
+      @include MinDevice {
+        height: auto;
+      }
+
       .title {
         font-size: 28px;
         color: #fff;
         font-weight: 500;
         margin-bottom: 16px;
+
+        @include MinDevice {
+          br {
+            display: none;
+          }
+        }
       }
 
       .desc {
@@ -478,7 +596,13 @@
 
       @include mobile {
         grid-column: span 1;
+        height: 696px;
+      }
 
+      @include MinDevice {
+        grid-column: auto;
+        grid-area: span 2/span 1/span 2/span 1;
+        height: 480px;
       }
 
       &-desc {
@@ -499,6 +623,10 @@
         picture {
           transform: translateY(52px);
         }
+
+        @include MinDevice {
+          height: 336px;
+        }
       }
 
     }
@@ -512,6 +640,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
+      @include MinDevice {
+        height: 336px;
+      }
 
       .icon {
         width: 64px;
@@ -528,6 +660,10 @@
         background-color: #252525;
         display: flex;
         flex-direction: column;
+
+        @include MinDevice {
+          height: 336px;
+        }
 
         .download {
           margin-top: auto;
@@ -565,8 +701,8 @@
         grid-row: span 3;
         height: calc((336px * 2) + 24px);
         position: relative;
+        background-color: #252525;
 
-        // cell-inner
         .text-box {
           display: flex;
           flex-direction: column;
@@ -618,6 +754,10 @@
         grid-column: span 1;
       }
 
+      @include MinDevice {
+        height: 336px;
+      }
+
       picture {
         img {
           object-position: 0% 40%;
@@ -634,31 +774,44 @@
     background: url("../images/cta-bg.png") no-repeat;
     background-size: cover;
     height: 100vh;
+    // height: calc(100vh - 80px);
     position: sticky;
     top: 0;
+
+    @include MinDevice {
+      height: 130vh;
+    }
   }
 
 
-
+  // ???? 이미지가 왤케 길어
   #canvas2 {
+    display: block;
     position: absolute;
     top: 9%;
-    left: 15%;
+    left: 0;
     height: 1096px;
     width: 1860px;
+
+    @include MinDevice {
+      width: 55vw;
+      height: 55vw;
+      left: 50%;
+      transform: translate(-50%, 70%);
+    }
   }
 
-  .inner1 {
-    height: 100%;
 
+  .inner1 {
     display: flex;
     position: relative;
 
     @include mobile {
-      padding: 112px 32px;
       flex-direction: column-reverse;
       justify-content: space-around;
+      padding: 150px 24px;
     }
+
   }
 
 
@@ -676,8 +829,11 @@
       font-size: 60px;
 
       @include mobile {
-        font-size: 48px;
+        font-size: 33px;
+        white-space: nowrap;
+        padding-left: 0;
       }
+
     }
 
     .desc {
@@ -734,16 +890,21 @@
     padding-left: 104px;
     opacity: 1;
 
+    @include mobile {
+      padding-left: 0;
+    }
+
     @include tablet {
       padding-left: 116px;
     }
+
 
     .headline {
       color: #3c4146;
       font-size: 48px;
 
       @include mobile {
-        font-size: 36px;
+        font-size: 33px;
         white-space: nowrap;
         padding-left: 0;
       }
@@ -762,6 +923,11 @@
     justify-content: center;
     width: 50%;
 
+
+    @include mobile {
+      width: 100%
+    }
+
     .headline {
       font-weight: 500;
     }
@@ -773,11 +939,19 @@
         letter-spacing: 0.5px;
         margin-top: 16px;
         font-size: 18px;
-        line-height: 26px;
+        line-height: 24px;
         font-weight: 300;
+
+        br {
+          display: none;
+        }
 
         @include mobile {
           font-size: 16px;
+
+          br {
+            display: block;
+          }
         }
       }
 
@@ -813,7 +987,7 @@
       font-size: 36px;
       font-weight: 500;
 
-      &-desc {
+      &-small {
         margin-top: 16px;
         letter-spacing: 0.5px;
         font-size: 18px;

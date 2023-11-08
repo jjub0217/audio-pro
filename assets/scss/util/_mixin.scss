@@ -29,11 +29,18 @@ $mobile: 991px;
 
 @mixin mobile {
 
-  // 850 이상을 꾸미는거다. 
+  // 991 이하을 꾸미는거다. 
   @media screen and (max-width: $mobile ) {
     @content;
   }
 }
 
-//1440 -> 1040
-// 2560 -> 1850 
+$MinDevice: 479px;
+
+@mixin MinDevice {
+
+  // 479 이하을 꾸미는거다. 
+  @media screen and (max-width: $MinDevice ) {
+    @content;
+  }
+}

@@ -1,51 +1,72 @@
+
+
+//??? 이게 뭐라
 $(window).trigger('scroll')
 
-const lenis = new Lenis()
 
+
+/**
+ * @스크롤부드럽게해주는lenis라이브러리
+ * 
+ */
+const lenis = new Lenis()
 function raf(time) {
   lenis.raf(time)
   requestAnimationFrame(raf)
 }
+requestAnimationFrame(raf);
 
-requestAnimationFrame(raf)
 
+
+/**
+ * @새로고침시로딩페이지내의텍스트들과영역애니메이션적용한gsap
+ * 
+ */
 const textTl = gsap.timeline()
-textTl.from(".loading .bottom .count", {
+textTl.from(".loading-page .bottom .count", {
   textContent: 76,
   duration: 2.5,
   ease:"slow(0.9, 0.1, true)",
   snap: { textContent: 1 },
 })
 .addLabel('a')
-.to('.loading .top',{ yPercent:-150 }, 'a')
-.to('.loading .bottom',{ yPercent:150 }, 'a')
-.to('.loading',{ display: "none" }, 'a')
+.to('.loading-page .top',{ yPercent:-150 }, 'a')
+.to('.loading-page .bottom',{ yPercent:150 }, 'a')
+.to('.loading-page',{ display: "none" }, 'a')
 .to('.wrapper',{ opacity: 1,display: "block" })
 
+
+
+/**
+ * @모바일버전에만나오는burger버튼클릭했을때모바일gnb나타내는기능
+ * 
+ */
 $(".burgerBtn").click(function(){
   $(".mo-gnb").toggleClass("isAct")
   $(this).toggleClass("on");
   if ($(this).attr('aria-expanded') === 'false') {
     $(this).attr('aria-expanded', 'true' )
+    $(this).attr('aria-label', '메뉴닫기' )
   } else {
     $(this).attr('aria-expanded', 'false' )
+    $(this).attr('aria-label', '메뉴열기' )
   }
 })
 
 
 
+/**
+ * @sectionspeaker영역의이미지canvas기능
+ * 
+ */
 const canvas1 = document.querySelector("#canvas1");
 const ctx1 = canvas1.getContext('2d');
-
-// canvas.width = 2880;
-// canvas1.width = 1124;
 canvas1.width = 2880;
-// canvas.height = 1720;
 canvas1.height = 1600;
 const frameCount1 = 90;
 
+
 const currentFrame1 = (idx) => {
-  // console.log(`./assets/images/audio${idx.toString().padStart(3, '0')}.png`);
   return `./assets/images/audio${idx.toString().padStart(3, '0')}.png`;
 }
 const images1 = [];
@@ -65,15 +86,20 @@ function render1() {
   ctx1.clearRect(0, 0, canvas1.width , canvas1.height);
   ctx1.drawImage(images1[card1.frame], 0, 0);
 }
-console.log(window.outerWidth);
-console.log(window.innerWidth);
-// 시작부터 시작?
+
+
+
+/**
+ * @sectionspeaker영역의canvas내에서이미지움직이는기능및텍스트움직이는기능의gsap
+ * 
+ */
+//???? 시작부터 시작?
 gsap.timeline({
   scrollTrigger:{
   trigger:$(".section-speaker"), 
   start:"-5% 0%",
   end:"100% 50%",
-  markers:true,
+  markers:false,
   scrub:1,
   },
     onUpdate: render1,
@@ -94,13 +120,13 @@ gsap.timeline({
 .to($(".header .logo"), {
   scale: 0.78
 }, 'a')
-.to($(".section-speaker .headline-small"), {
+.to($(".section-speaker .headline1-desc"), {
   opacity: 0
 }, 'a')
-.to($(".section-speaker .headline"), {
+.to($(".section-speaker .headline1 .headline"), {
   opacity: 0
 }, 'a')
-.to($(".section-speaker .desc-title"), {
+.to($(".section-speaker .headline2 .headline"), {
   opacity: 1
 })
 .to($(".section-speaker .desc"), {
@@ -109,6 +135,10 @@ gsap.timeline({
 
 
 
+/**
+ * @sectionwireless영역의텍스트움직이는기능의gsap
+ * 
+ */
 gsap.timeline({
   scrollTrigger:{
     trigger:$(".section-wireless"), 
@@ -125,7 +155,10 @@ gsap.timeline({
 
 
 
-
+/**
+ * @sectionoldschool영역의텍스트움직이는기능의gsap
+ * 
+ */
 gsap.timeline({
   scrollTrigger:{
     trigger:$(".section-oldschool"), 
@@ -142,7 +175,10 @@ gsap.timeline({
 
 
 
-// 아... 개짜증나네.... 아 왜 되다 안되다 하는거야...
+/**
+ * @sectionoldschool영역의이미지안에있는point요소에마우스호버했을때의기능
+ * 
+ */
 $(".section-oldschool .point").hover(function(e){
   console.log('호버');
   $(this).find(".text").addClass("hov")
@@ -155,38 +191,52 @@ $(".section-oldschool .point").hover(function(e){
 
 
 
+/**
+ * @sectioncta영역의이미지canvas기능
+ * 
+ */
 
-
-const canvas2 = document.querySelector("#canvas2");
+const canvas2 = document.querySelector("#canvas2"); // 479　초과
 const ctx2 = canvas2.getContext('2d');
-canvas2.width = 2880;
-canvas2.height = 1600;
-const frameCount2 = 91;
-const currentFrame2 = (idx) => {
-  // console.log(`./assets/images/audio${idx.toString().padStart(3, '0')}.png`);
-  return `./assets/images/container${idx.toString().padStart(3, '0')}.png`;
-}
+
+canvas2.width = window.innerWidth > 479 ? 2880 : 1080;
+canvas2.height = window.innerWidth > 479 ? 1600 : 1080;
+const frameCount2 = window.innerWidth > 479 ?  91 : 66;
+
 const images2 = [];
 const card2 = {
   frame: 0,
 };
+
+
+const currentFrame2 = (idx) => {
+ return window.innerWidth > 479 ? `./assets/images/container${idx.toString().padStart(3, '0')}.png` :
+ `./assets/images/move2-${idx.toString().padStart(3, '0')}.png` 
+}
+
 for (let i = 0; i < frameCount2; i++) {
   const img = new Image();
   img.src = currentFrame2(i + 1);
   images2.push(img);
 }
+
 images2[0].onload = render2;
+
 function render2() {
-  ctx2.clearRect(0, 0, canvas2.width , canvas2.height);
+  ctx2.clearRect(0, 0, canvas2.width , canvas2.height) 
   ctx2.drawImage(images2[card2.frame], 0, 0);
 }
 
 
 
+/**
+ * @sectioncta영역의canvas내에서이미지움직이는기능및텍스트움직이는기능의gsap
+ * 
+ */
 gsap.timeline({
   scrollTrigger:{
   trigger:$(".section-cta"), 
-  start:"0% 0%",
+  start:"0% 10%",
   end:"100% 50%",
   markers:true,
   scrub:1,
@@ -195,10 +245,16 @@ gsap.timeline({
 })
 .addLabel('a')
 .to(card2, {
+  //???? 왜 y퍼센트가 안움직일까?
+  yPercent: -50, 
   duration: 1,
   frame: frameCount2 - 1,
   snap: 'frame',
   ease: 'none',
+},'a')
+.to($("#canvas2"),{
+  yPercent: -50, 
+  duration: 1,
 },'a')
 .to($(".section-cta .right .desc"), {
   opacity: 0
@@ -221,8 +277,10 @@ gsap.timeline({
 
 
 
-
-
+/**
+ * @sectionspeaker영역의canvas내에서이미지움직이는기능및텍스트움직이는기능의gsap
+ * 
+ */
 gsap.timeline({
   scrollTrigger:{ 
     trigger: $(".section-features .grid-area"),  
@@ -240,7 +298,6 @@ gsap.timeline({
 .to(".section-features .grid-area .top-desc", {
   y: 0,
   opacity: 1,
-  
 })
 .to(".section-features .grid-area .top-sub", {
   y: 0,
@@ -265,9 +322,10 @@ gsap.timeline({
 
 
 
-
-
-
+/**
+ * @sectionfaq영역의서브리스트나타내는기능및화살표회전시키는기능
+ * 
+ */
   $('.section-faq .faq-item').click(function(e){
     e.preventDefault();
     $(this).find('.sub-list').toggleClass('on')
@@ -275,6 +333,11 @@ gsap.timeline({
   })
 
 
+
+/**
+ * @마우스커서디자인gsap
+ * 
+ */
 $("body").mousemove(function(e){
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -286,8 +349,11 @@ $("body").mousemove(function(e){
 
 
 
-
-// 줌이 안되고 있다.
+/**
+ * @마우스커서가cursorEffect라는classname요소에마우스호버했을때커서가커지는기능및해당요소컬러변경기능
+ * 
+ */
+//????? 줌이 안되고 있다.
 $(".cursorEffect").hover(function(e){
   $(".cursor").addClass("isZoom")
   $(this).addClass("on")

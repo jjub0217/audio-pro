@@ -32,12 +32,12 @@
   overflow: hidden;
 }
 
-// 왜 새로고침하면 스크롤이 보이는걸까?
-.loading {
+//???? 왜 새로고침하면 스크롤이 보이는걸까?
+.loading-page {
   position: fixed;
   z-index: 99999;
   top: 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -50,6 +50,11 @@
     justify-content: space-between;
     padding: 20.3px 40px;
     border-bottom: 2px solid #adadad;
+
+    @include mobile {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 
   span {
@@ -58,6 +63,11 @@
     font-weight: 300;
     font-size: 24px;
     line-height: 1;
+
+    @include mobile {
+      font-size: 18px;
+      // font-size: 0.9em;
+    }
   }
 
   .bottom {
@@ -65,10 +75,22 @@
     padding-right: 50px;
     align-self: flex-end;
 
+    @include mobile {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
     .count {
       font-size: 326px;
       font-weight: 500;
       line-height: .55;
+
+      @include mobile {
+        font-size: 200px;
+      }
     }
   }
 
@@ -79,21 +101,25 @@
 .inner1 {
   margin: 0 auto;
 
-  // min-width 1440
-  @include tablet {
-    max-width: 1280px;
-    // max-width: 1280px;
+  @include MinDevice {
+    max-width: none;
+    // max-width: 728px;
   }
 
-  // min-width 1920
+  @include tablet {
+    max-width: 1280px;
+  }
+
+
   @include desktop {
     // max-width: 1440px;
     max-width: 1360px;
-
   }
+
 }
 
-
+//???? 왜 마우스커서가 보이는걸까?
+//???? 커서가 느리게 움직이는 느낌?
 .cursor {
   position: fixed;
   top: 0;
@@ -157,7 +183,6 @@
 
   100% {
     opacity: 0;
-    // border-width 얇게 못하나?
     width: 100%;
     height: 100%;
   }
@@ -174,7 +199,6 @@
 
   100% {
     opacity: 0;
-    // border-width 얇게 못하나?
     width: 70%;
     height: 70%;
   }
@@ -184,11 +208,9 @@
 @keyframes opacityWidth {
   0% {
     opacity: 0;
-    // transform: translateX(-100%);
   }
 
   100% {
     opacity: 1;
-    // transform: translateX(0);
   }
 }
