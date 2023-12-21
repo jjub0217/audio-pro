@@ -19,7 +19,6 @@
   margin: 0;
   padding: 0;
   color: inherit;
-  cursor: none;
 }
 
 *,
@@ -27,6 +26,10 @@
 :before {
   box-sizing: border-box;
   flex-shrink: 0;
+}
+
+html {
+  cursor: none;
 }
 
 html,
@@ -51,6 +54,7 @@ button {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 table {
@@ -73,6 +77,10 @@ body {
 
 fieldset {
   border: 0;
+}
+
+.hidden {
+  overflow: hidden;
 }
 
 .blind {
@@ -204,10 +212,6 @@ fieldset {
     display: none;
   }
 }
-.cursor.isZoom {
-  opacity: 0.8;
-  transform: scale(1.5);
-}
 
 @keyframes gScale {
   0% {
@@ -288,7 +292,6 @@ fieldset {
 }
 .header .logo {
   width: 144px;
-  cursor: pointer;
 }
 .header .logo img {
   width: 144px;
@@ -318,6 +321,7 @@ fieldset {
   height: 16px;
   position: relative;
   overflow: hidden;
+  cursor: none;
 }
 .header .gnb .nav-item.cursorEffect a span {
   position: absolute;
@@ -339,6 +343,9 @@ fieldset {
 }
 .header .gnb .nav-item.cursorEffect.on .bottom {
   top: 0;
+}
+.header .gnb .nav-item .cursorEffectText {
+  cursor: none;
 }
 @media screen and (max-width: 479px) {
   .header .gnb {
@@ -455,6 +462,11 @@ fieldset {
 .footer .creator .wiemer {
   min-width: 297px;
 }
+.footer .creator .peil a.cursorEffect,
+.footer .creator .adlophs a.cursorEffect,
+.footer .creator .wiemer a.cursorEffect {
+  cursor: none;
+}
 .footer .creator a {
   display: flex;
   align-items: center;
@@ -513,13 +525,14 @@ fieldset {
   color: #fff;
   padding: 9px 15px;
   line-height: 23px;
+  cursor: none;
 }
 .footer .toEng:hover {
   color: #1d1d1d;
   background: #c9c8c8;
 }
 
-.container {
+cta.container {
   margin-top: 96px;
 }
 
@@ -1383,6 +1396,7 @@ fieldset {
   height: 16px;
   position: relative;
   overflow: hidden;
+  cursor: none;
 }
 .section-cta .left .cursorEffect a span {
   position: absolute;
@@ -1474,19 +1488,20 @@ fieldset {
     font-size: 16px;
   }
 }
-.section-faq .inner1 .title {
+.section-faq .inner1 .faq-item .title {
   font-size: 24px;
   font-weight: 300;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: none;
 }
 @media screen and (max-width: 991px) {
-  .section-faq .inner1 .title {
+  .section-faq .inner1 .faq-item .title {
     font-size: 21px;
   }
 }
-.section-faq .inner1 .title::after {
+.section-faq .inner1 .faq-item .title::after {
   content: "";
   display: block;
   width: 21px;
@@ -1496,7 +1511,7 @@ fieldset {
   transform: rotate(-90deg);
   transition: 0.3s;
 }
-.section-faq .inner1 .title.on::after {
+.section-faq .inner1 .faq-item .title.on::after {
   transform: rotate(0);
 }
 .section-faq .inner1 .sub-list {

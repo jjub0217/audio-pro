@@ -1,4 +1,4 @@
-.container {
+cta.container {
   margin-top: 96px;
 }
 
@@ -927,6 +927,7 @@
         height: 16px;
         position: relative;
         overflow: hidden;
+        cursor: none;
 
         span {
           position: absolute;
@@ -1035,35 +1036,42 @@
       }
     }
 
-    .title {
-      font-size: 24px;
-      font-weight: 300;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .faq {
+      &-item {
+        .title {
+          font-size: 24px;
+          font-weight: 300;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: none;
 
-      @include mobile {
-        font-size: 21px;
-      }
+          @include mobile {
+            font-size: 21px;
+          }
 
-      &::after {
-        content: "";
-        display: block;
-        width: 21px;
-        height: 21px;
-        background: url("../images/arrow.png") no-repeat;
-        background-size: cover;
-        transform: rotate(-90deg);
-        transition: 0.3s;
-      }
+          &::after {
+            content: "";
+            display: block;
+            width: 21px;
+            height: 21px;
+            background: url("../images/arrow.png") no-repeat;
+            background-size: cover;
+            transform: rotate(-90deg);
+            transition: 0.3s;
+          }
 
-      &.on {
-        &::after {
-          transform: rotate(0);
+          &.on {
+            &::after {
+              transform: rotate(0);
+            }
+          }
+
         }
       }
-
     }
+
+
 
     .sub {
       &-list {

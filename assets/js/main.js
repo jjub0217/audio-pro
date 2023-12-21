@@ -1,9 +1,6 @@
 
 
-//??? 이게 뭐라
 $(window).trigger('scroll')
-
-
 
 /**
  * @스크롤부드럽게해주는lenis라이브러리
@@ -16,13 +13,15 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-
-
 /**
  * @새로고침시로딩페이지내의텍스트들과영역애니메이션적용한gsap
  * 
  */
-const textTl = gsap.timeline()
+const textTl = gsap.timeline({
+  onComplete: function(){
+    $("body").removeClass("hidden")
+  }
+})
 textTl.from(".loading-page .bottom .count", {
   textContent: 76,
   duration: 2.5,
@@ -95,13 +94,12 @@ function render1() {
  * @sectionspeaker영역의canvas내에서이미지움직이는기능및텍스트움직이는기능의gsap
  * 
  */
-//???? 시작부터 시작?
 gsap.timeline({
   scrollTrigger:{
   trigger:$(".section-speaker"), 
   start:"-5% 0%",
   end:"100% 50%",
-  markers:false,
+  markers:true,
   scrub:1,
   },
     onUpdate: render1,
@@ -170,7 +168,7 @@ gsap.timeline({
     trigger:$(".section-oldschool"), 
     start:"0% 0%",
     end:"100% 0%",
-    markers:true,
+    markers:false,
     scrub:1,
     duration: 5
   },
@@ -345,7 +343,7 @@ gsap.timeline({
 $("body").mousemove(function(e){
     mouseX = e.clientX;
     mouseY = e.clientY;
-    gsap.to(".cursor",{
+    gsap.to(".cursor",0,{
       x: mouseX,
       y: mouseY
   })
@@ -354,17 +352,52 @@ $("body").mousemove(function(e){
 
 
 /**
- * @마우스커서가cursorEffect라는classname요소에마우스호버했을때커서가커지는기능및해당요소컬러변경기능
+ * @마우스커서가cursorEffect와cursorEffectText와faqitem그리고toEng라는classname요소에마우스호버했을때커서가커지는기능및해당요소컬러변경기능
  * 
  */
-//????? 줌이 안되고 있다.
 $(".cursorEffect").hover(function(e){
-  $(".cursor").addClass("isZoom")
+  gsap.to(".cursor", {
+    scale:1.5
+  })
   $(this).addClass("on")
 })
 .mouseleave(function(){
-  $(".cursor").removeClass("isZoom")
+    gsap.to(".cursor", {
+    scale:1
+  })
     $(this).removeClass("on")
+})
+
+$(".cursorEffectText").hover(function(e){
+  gsap.to(".cursor", {
+    scale:1.5
+  })
+})
+.mouseleave(function(){
+    gsap.to(".cursor", {
+    scale:1
+  })
+})
+
+$(".faq-item").hover(function(e){
+  gsap.to(".cursor", {
+    scale:1.5
+  })
+})
+.mouseleave(function(){
+    gsap.to(".cursor", {
+    scale:1
+  })
+})
+$(".toEng").hover(function(e){
+  gsap.to(".cursor", {
+    scale:1.5
+  })
+})
+.mouseleave(function(){
+    gsap.to(".cursor", {
+    scale:1
+  })
 })
 
   

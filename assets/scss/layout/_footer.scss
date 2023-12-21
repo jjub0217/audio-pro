@@ -35,6 +35,10 @@
     .adlophs,
     .wiemer {
       min-width: 297px;
+
+      a.cursorEffect {
+        cursor: none;
+      }
     }
 
     a {
@@ -111,6 +115,7 @@
     color: #fff;
     padding: 9px 15px;
     line-height: 23px;
+    cursor: none;
 
     &:hover {
       color: #1d1d1d;

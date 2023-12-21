@@ -1,3 +1,8 @@
+.hidden {
+  overflow: hidden;
+}
+
+
 .blind {
   width: 1px;
   height: 1px;
@@ -32,7 +37,7 @@
   overflow: hidden;
 }
 
-//???? 왜 새로고침하면 스크롤이 보이는걸까?
+//???? 왜 새로고침하면 스크롤이 보이는걸까? : 해결
 .loading-page {
   position: fixed;
   z-index: 99999;
@@ -118,8 +123,8 @@
 
 }
 
-//???? 왜 마우스커서가 보이는걸까?
-//???? 커서가 느리게 움직이는 느낌?
+//???? 왜 마우스커서가 보이는걸까? : 해결
+//???? 커서가 느리게 움직이는 느낌? : 해결
 .cursor {
   position: fixed;
   top: 0;
@@ -135,10 +140,6 @@
     display: none;
   }
 
-  &.isZoom {
-    opacity: 0.8;
-    transform: scale(1.5);
-  }
 }
 
 
