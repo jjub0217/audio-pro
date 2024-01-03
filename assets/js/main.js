@@ -99,7 +99,7 @@ gsap.timeline({
   trigger:$(".section-speaker"), 
   start:"-5% 0%",
   end:"100% 50%",
-  markers:true,
+  markers:false,
   scrub:1,
   },
     onUpdate: render1,
@@ -355,6 +355,13 @@ $("body").mousemove(function(e){
  * @마우스커서가cursorEffect와cursorEffectText와faqitem그리고toEng라는classname요소에마우스호버했을때커서가커지는기능및해당요소컬러변경기능
  * 
  */
+
+cursorScale =  gsap.to(".cursor", {
+    scale:1.5,
+    paused: true
+  })
+
+
 $(".cursorEffect").hover(function(e){
   gsap.to(".cursor", {
     scale:1.5
