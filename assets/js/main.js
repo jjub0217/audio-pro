@@ -59,9 +59,9 @@ $(".burgerBtn").click(function(){
  * 
  */
 const canvas1 = document.querySelector("#canvas1");
-const ctx1 = canvas1.getContext('2d');
 canvas1.width =  window.innerWidth > 479 ? 2880 : 1080;
 canvas1.height = window.innerWidth > 479 ? 1600 : 1920;
+const ctx1 = canvas1.getContext('2d');
 const frameCount1 = window.innerWidth > 479 ? 90 : 41;
 
 const images1 = [];
@@ -71,7 +71,7 @@ const card1 = {
 
 const currentFrame1 = (idx) => {
   return window.innerWidth > 479 ?  `./assets/images/audio${idx.toString().padStart(3, '0')}.png` :
-   `./assets/images/move1-${idx.toString().padStart(3, '0')}.png` ;
+  `./assets/images/move1-${idx.toString().padStart(3, '0')}.png` ;
 }
 
 
@@ -201,10 +201,10 @@ $(".section-oldschool .point").hover(function(e){
  */
 
 const canvas2 = document.querySelector("#canvas2"); 
-const ctx2 = canvas2.getContext('2d');
-
 canvas2.width = window.innerWidth > 479 ? 2880 : 1080;
 canvas2.height = window.innerWidth > 479 ? 1600 : 1080;
+const ctx2 = canvas2.getContext('2d');
+
 const frameCount2 = window.innerWidth > 479 ?  91 : 66;
 
 const images2 = [];
@@ -214,8 +214,8 @@ const card2 = {
 
 
 const currentFrame2 = (idx) => {
- return window.innerWidth > 479 ? `./assets/images/container${idx.toString().padStart(3, '0')}.png` :
- `./assets/images/move2-${idx.toString().padStart(3, '0')}.png` 
+  return window.innerWidth > 479 ? `./assets/images/container${idx.toString().padStart(3, '0')}.png` :
+  `./assets/images/move2-${idx.toString().padStart(3, '0')}.png` 
 }
 
 for (let i = 0; i < frameCount2; i++) {
@@ -341,8 +341,8 @@ gsap.timeline({
  * 
  */
 $("body").mousemove(function(e){
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+  let mouseX = e.clientX;
+  let mouseY = e.clientY;
     gsap.to(".cursor",0,{
       x: mouseX,
       y: mouseY
