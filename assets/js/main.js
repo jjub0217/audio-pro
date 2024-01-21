@@ -47,9 +47,11 @@ $(".burgerBtn").click(function(){
   if ($(this).attr('aria-expanded') === 'false') {
     $(this).attr('aria-expanded', 'true' )
     $(this).attr('aria-label', '메뉴닫기' )
+    $(this).attr('aria-selected', 'true' )
   } else {
     $(this).attr('aria-expanded', 'false' )
     $(this).attr('aria-label', '메뉴열기' )
+    $(this).attr('aria-selected', 'false' )
   }
 })
 
