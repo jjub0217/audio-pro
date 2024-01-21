@@ -7,6 +7,7 @@ $(window).trigger('scroll')
  * 
  */
 const lenis = new Lenis()
+
 function raf(time) {
   lenis.raf(time)
   requestAnimationFrame(raf)
@@ -81,13 +82,14 @@ for (let i = 0; i < frameCount1; i++) {
   images1.push(img);
 }
 
-images1[0].onload = render1;
 
-function render1() {
+const render1 = () => {
+  console.log('render1 실행');
   ctx1.clearRect(0, 0, canvas1.width , canvas1.height);
   ctx1.drawImage(images1[card1.frame], 0, 0);
 }
 
+images1[0].onload = render1;
 
 
 /**
@@ -224,14 +226,15 @@ for (let i = 0; i < frameCount2; i++) {
   images2.push(img);
 }
 
-images2[0].onload = render2;
 
-function render2() {
+
+const render2 = ()=> {
+  console.log("render2 실행");
   ctx2.clearRect(0, 0, canvas2.width , canvas2.height) 
   ctx2.drawImage(images2[card2.frame], 0, 0);
 }
 
-
+images2[0].onload = render2;
 
 /**
  * @sectioncta영역의canvas내에서이미지움직이는기능및텍스트움직이는기능의gsap
