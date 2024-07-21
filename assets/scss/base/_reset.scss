@@ -3,9 +3,6 @@
   margin: 0;
   padding: 0;
   color: inherit;
-  // cursor: none;
-
-
 }
 
 *,
@@ -41,19 +38,17 @@ button {
 
 a {
   text-decoration: none;
-  cursor: pointer;
+  cursor: none;
 }
 
 table {
   border-collapse: collapse;
-  border-spacing: 0
+  border-spacing: 0;
 }
 
 ul {
   list-style: none;
 }
-
-
 
 /* 세팅 */
 body {
@@ -66,19 +61,4 @@ body {
 
 fieldset {
   border: 0;
-}
-
-@mixin ellipse($line: 1) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @if($line > 1) {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: $line;
-  }
-
-  @else {
-    white-space: nowrap;
-  }
 }

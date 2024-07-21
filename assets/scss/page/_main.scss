@@ -1,188 +1,195 @@
-cta.container {
+.container {
   margin-top: 96px;
 }
 
-
-.section-speaker {
-  height: calc(300vh - 96px);
+.text_wrap {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  @include mobile {
+    padding: 5rem 1.5rem;
+  }
+}
 
-  .inner1 {
-    height: calc(100vh - 96px);
+.headline {
+  font-weight: 500;
+  color: #fff;
+  @include mobile {
+    font-size: 48px;
+  }
+}
+
+.description_box {
+  max-width: 480px;
+  padding-left: 8px;
+  @include mobile {
+    padding: 0;
+  }
+}
+
+.description {
+  font-size: 18px;
+  color: #e0e0e0;
+  letter-spacing: 0.5px;
+  line-height: 26px;
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.section_speaker,
+.section_engineered {
+  height: calc(300vh - 96px);
+
+  .inner {
+    overflow: hidden;
     position: sticky;
     top: 0;
-    overflow: hidden;
-
-    @include MinDevice {
-      height: 100vh;
+    max-width: none;
+    height: 100vh;
+    padding: 170px 40px;
+    @include noneMobile {
+      padding: 112px 40px 20px 40px;
     }
-  }
-
-  #canvas1 {
-    position: absolute;
-    top: 11%;
-
-    @include MinDevice {
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 56vw;
-    }
-  }
-
-  .text-box {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 112px 40px;
-    position: relative;
-
-
 
     @include mobile {
-      justify-content: center;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  #canvas1,
+  #canvas2 {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 80vh;
+
+    @include noneMobile {
+      top: 80px;
+      width: 85vw;
+      height: 90vh;
+    }
+  }
+  .text_wrap {
+    max-width: 90rem;
+    padding: 7rem 2.5rem;
+    margin: 0 auto;
+
+    @include mobile {
+      justify-content: space-between;
       align-items: flex-start;
-      position: relative;
-      padding-left: 32px;
-      padding-right: 32px;
+      height: 80vh;
+      padding: 0;
+      // padding: 112px 40px;
+    }
+  }
+}
+
+.section_speaker {
+  #canvas1 {
+    @include desktop {
+      top: 11%;
+      width: 100vw;
+      height: 40vh;
     }
 
-    @include MinDevice {
-      padding: 0 24px;
-      transform: translateY(-10%);
+    @include mobile {
+      top: auto;
+      height: 80vh;
+      bottom: 16%;
     }
+  }
+
+  .description {
+    margin-bottom: 8px;
+    color: #a5a5a5;
   }
 
   .headline {
-    &1 {
-      &-desc {
-        color: #a5a5a5;
-        letter-spacing: .5px;
-        font-size: 18px;
-        margin-bottom: 8px;
-        font-weight: 300;
-      }
+    font-size: 90px;
+    @include mobile {
+      font-size: 48px;
+    }
+  }
 
-      .headline {
-        color: #fff;
-        font-size: 90px;
-        font-weight: 500;
+  .text_box:last-child {
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: calc(50% - 80px);
+    height: 100%;
 
-        @include mobile {
-          font-size: 75px;
-        }
+    @include mobile {
+      right: auto;
+      justify-content: flex-end;
+      width: 100%;
+    }
 
-        @include MinDevice {
-          font-size: 48px;
-        }
+    .title {
+      margin: 20px 0 10px;
+      font-size: 48px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+      opacity: 0;
+
+      @include mobile {
+        font-size: 32px;
       }
     }
 
-    &2 {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: calc(50% - 80px);
-      height: 100%;
-      position: absolute;
-      right: 0;
-      top: 0;
+    .description_box {
+      opacity: 0;
+      padding: 0;
 
-      @include mobile {
-        right: auto;
-        width: 100%;
-      }
-
-      @include MinDevice {
-        justify-content: flex-end;
-      }
-
-      .headline {
-        opacity: 0;
-        color: #fff;
-        font-size: 48px;
-        font-weight: 600;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        line-height: 1.4;
-
-
-        @include MinDevice {
-          font-size: 32px;
-        }
-      }
-
-      .desc {
-        opacity: 0;
-
-        &-small,
-        &-spec {
-          max-width: 480px;
-          margin-top: 16px;
-          color: #e0e0e0;
-          letter-spacing: .5px;
-          font-size: 18px;
-          font-weight: 300;
-          line-height: 26px;
-
-        }
-
-        &-small {
-          @include mobile {
-            font-size: 16px;
-
-            br {
-              display: none;
-            }
-          }
-
-        }
-
-        &-spec {
+      .description {
+        color: #e0e0e0;
+        &:last-child {
           margin-top: 30px;
         }
       }
     }
-
   }
-
-
 }
 
-.section-wireless {
+.section_wireless {
+  position: relative;
   height: 100vh;
   margin-bottom: 192px;
-  position: relative;
 
-
-
-  @include mobile {
-    margin-bottom: 80px;
-  }
-
-  .bottom-gradient {
-    width: 100%;
-    height: 15rem;
-    background-image: linear-gradient(rgba(255, 255, 255, 0), #1d1d1d 85%);
+  &::after {
+    display: block;
     position: absolute;
-    z-index: 1;
     top: auto;
     bottom: 0%;
     left: 0%;
     right: 0%;
+    z-index: 1;
+    width: 100%;
+    height: 15rem;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), #1d1d1d 85%);
+    content: "";
   }
 
-  .bg {
+  @include mobile {
+    height: 85vh;
+    margin-bottom: 80px;
+  }
+  .background {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     height: 100%;
 
-    .left-large,
-    .left-middle,
-    .left-center,
-    .right-large,
-    .right-middle,
-    .right-center {
+    .wave {
       animation: gScale 2s infinite;
 
       path {
@@ -190,190 +197,120 @@ cta.container {
       }
     }
 
-  }
-
-  .inner1 {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 130px);
-    display: flex;
-    width: 100%;
-    height: 100%;
-  }
-
-  .text-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;
-
     @include mobile {
-      padding-right: 32px;
-      padding-left: 32px;
-    }
-
-    @include MinDevice {
-      padding: 0 24px;
-    }
-
-
-    .headline {
-      color: #fff;
-      font-size: 60px;
-      font-weight: 500;
-
-      @include mobile {
-        font-size: 48px;
-      }
-
-      @include MinDevice {
-        font-size: 32px;
-        word-break: break-all;
-      }
-    }
-
-    .desc {
-      color: #e0e0e0;
-      margin-top: 16px;
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 26px;
-      letter-spacing: .5px;
-      padding-left: 8px;
-      color: #e0e0e0;
-
-      @include mobile {
-        font-size: 16px;
-      }
-
-      @include MinDevice {
-        padding-left: 0;
-      }
-
-
-      &-small {
-        max-width: 720px;
-
-        @include mobile {
-          max-width: 480px;
-        }
-      }
-
-      &-spec {
-        margin-top: 48px;
-        display: flex;
-        align-items: center;
-
-        gap: 48px;
-
-        @include MinDevice {
-          justify-content: space-between;
-        }
-      }
+      height: 75%;
     }
   }
 
+  .inner {
+    z-index: 2;
+    height: 100%;
+    padding-bottom: 0;
+  }
 
+  .text_wrap {
+    @include mobile {
+      padding: 0;
+    }
+    .headline {
+      font-size: 60px;
+
+      @include mobile {
+        font-size: 32px;
+      }
+    }
+
+    .description_box {
+      max-width: 720px;
+      margin-top: 16px;
+      @include mobile {
+        max-width: 480px;
+        margin-top: 0;
+      }
+
+      .icon_box {
+        display: flex;
+        margin-top: 48px;
+      }
+
+      .icon {
+        width: 94px;
+        height: 24px;
+        margin-right: 3rem;
+      }
+    }
+  }
 }
 
-.section-oldschool {
+.section_old_school {
   height: 100vh;
   margin-bottom: 100px;
 
-  @include MinDevice {
-    height: auto;
-    padding: 0px 24px;
+  @include mobile {
+    height: 65vh;
+    margin-bottom: 120px;
   }
 
-
-  .inner1 {
-    position: relative;
-    height: 115vh;
+  .inner {
     overflow: hidden;
+    height: 100vh;
 
     @include mobile {
       display: flex;
       flex-direction: column-reverse;
       align-items: center;
-      padding: 112px 40px;
-    }
-
-    @include MinDevice {
-      padding: 0;
+      height: 100%;
     }
   }
 
-  .text-box {
-    display: flex;
-    flex-direction: column;
+  .text_wrap {
     justify-content: center;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
+    max-width: 480px;
     padding: 0 40px;
 
-
     @include mobile {
-      padding-right: 32px;
-      padding-left: 32px;
-    }
-
-    @include tablet {
-      padding: 112px 40px;
-      height: 100%;
-    }
-
-    @include desktop {
-      padding: 112px 40px;
-      height: 100%;
-    }
-
-    @include MinDevice {
-      padding: 0;
       justify-content: flex-end;
+      padding: 0;
     }
 
     .headline {
-      color: #fff;
       font-size: 72px;
-      font-weight: 500;
 
-      @include MinDevice {
+      @include mobile {
         font-size: 42px;
       }
     }
 
-    .desc {
-      &-small {
-        color: #e0e0e0;
-        letter-spacing: .5px;
-        font-size: 18px;
-        font-weight: 300;
-        line-height: 26px;
-        margin-top: 16px;
-        padding-left: 8px;
-        max-width: 480px;
+    .description:last-child {
+      max-width: 480px;
+      margin-top: 16px;
 
-        @include mobile {
-          font-size: 16px;
-        }
+      @include mobile {
+        margin-top: 0;
       }
     }
   }
 
-  // 이미지가 짤린다...
-  .bg {
+  .speaker {
     position: absolute;
     top: 64px;
+    top: 50%;
     right: 0;
+    transform: translateY(-50%);
     height: 800px;
 
+    @include desktop {
+      right: -5%;
+      height: 60vh;
+      width: 60vw;
+    }
+
     @include mobile {
-      height: auto;
-      width: 100%;
+      height: 40vh;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      top: 0;
     }
 
     picture {
@@ -381,129 +318,117 @@ cta.container {
       transform: rotate(7deg);
 
       img {
-        object-fit: cover;
         height: 100%;
+        object-fit: cover;
       }
     }
 
-    .point {
-      @include MinDevice {
+    .speaker_option {
+      position: absolute;
+
+      @include mobile {
         display: none;
       }
-    }
 
-    .point1 {
-      position: absolute;
-      top: 40%;
-      left: 27%;
-    }
-
-    .point2 {
-      position: absolute;
-      top: 35%;
-      left: 39%;
-    }
-
-    .point3 {
-      position: absolute;
-      top: 42%;
-      left: 52%;
-    }
-
-    .point4 {
-      position: absolute;
-      top: 48%;
-      left: 41%;
-    }
-
-    .dot {
-      width: 24px;
-      height: 24px;
-      position: relative;
-
-      span {
-        &.center {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 45%;
-          height: 45%;
-          border-radius: 50%;
-          background: #fff;
-          z-index: 2;
-
-          &::after {
-            content: "";
-            opacity: 0;
-            display: block;
-            position: absolute;
-            top: 50%;
-            width: 1px;
-            height: 1px;
-            background: #fff;
-            transition: width 0.2s;
-          }
-
-          &.hov {
-            &::after {
-              content: "";
-              opacity: 1;
-              width: 265px;
-            }
-          }
+      &:hover {
+        .center_dot::after {
+          width: 265px;
+          opacity: 1;
+          content: "";
         }
 
-        &:nth-child(2) {
-          width: 10%;
-          height: 10%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          border-radius: 50%;
-          border: 1px solid #fff;
-          animation: scale1 2s infinite;
-
+        .option_description {
+          opacity: 1;
+          transition: opacity 0.3s ease-out 0.5s;
         }
+      }
 
-        &:nth-child(3) {
-          width: 10%;
-          height: 10%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          border-radius: 50%;
-          border: 1px solid #fff;
-          animation: scale2 2s infinite;
+      &.sub_out {
+        top: 40%;
+        left: 27%;
+      }
 
-        }
+      &.jack {
+        top: 35%;
+        left: 39%;
+      }
+
+      &.arc {
+        top: 42%;
+        left: 52%;
+      }
+
+      &.optical {
+        top: 48%;
+        left: 41%;
       }
     }
 
-    .text {
-      opacity: 0;
+    .dot_box {
+      position: relative;
+      width: 24px;
+      height: 24px;
+    }
+
+    .center_dot,
+    .middle_dot,
+    .bottom_dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    .center_dot {
+      width: 45%;
+      height: 45%;
+      background: #fff;
+
+      &::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 1px;
+        height: 1px;
+        background: #fff;
+        transition: width 0.2s;
+        opacity: 0;
+        content: "";
+      }
+    }
+
+    .middle_dot,
+    .bottom_dot {
+      width: 10%;
+      height: 10%;
+      border: 1px solid #fff;
+    }
+
+    .middle_dot {
+      animation: scale1 2s infinite;
+    }
+
+    .bottom_dot {
+      animation: scale2 2s infinite;
+    }
+
+    .option_description {
+      display: block;
       position: absolute;
       left: 50%;
       top: -50%;
-      display: block;
       width: 260px;
-      text-align: right;
       font-size: 18px;
-      line-height: 24px;
       color: #fff;
-
-      &.hov {
-        opacity: 1;
-        transition: opacity 0.3s ease-out 0.5s;
-      }
+      text-align: right;
+      line-height: 24px;
+      opacity: 0;
     }
-
   }
 }
 
-.section-features {
+.section_features {
   padding-bottom: 88px;
   margin-bottom: 128px;
 
@@ -512,522 +437,409 @@ cta.container {
     margin-bottom: 48px;
   }
 
-  @include MinDevice {
-    margin-bottom: 0;
-  }
-
-  .inner2 {
-    margin: 0 auto;
-    padding: 112px 40px;
+  .inner {
     max-width: 1140px;
+    padding: 112px 40px;
 
     @include mobile {
-      padding-right: 24px;
-      padding-left: 24px;
-    }
-
-    @include MinDevice {
-      max-width: none;
-      padding: 0 24px;
+      padding: 112px 24px;
     }
   }
 
   .headline {
     margin-bottom: 32px;
-    color: #fff;
     font-size: 36px;
-    font-weight: 500;
 
-    @include MinDevice {
+    @include mobile {
       font-size: 24px;
     }
   }
 
-  .grid-area {
+  .title {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 28px;
+    font-weight: 500;
+    color: #fff;
+    @include ellipse(2);
+  }
+
+  .feature_area {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 24px;
 
     @include mobile {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(4, 336px);
-    }
-
-    @include MinDevice {
       grid-template-rows: auto auto auto auto;
       grid-template-columns: 1fr;
     }
+  }
 
+  .grid_cell {
+    overflow: hidden;
+    height: 336px;
+    border-radius: 8px;
 
+    @include mobile {
+      height: auto;
+    }
 
-    .space {
-      height: 336px;
-      border-radius: 8px;
-      overflow: hidden;
+    picture {
+      height: 100%;
 
-      @include MinDevice {
-        height: auto;
-      }
-
-      .title {
-        font-size: 28px;
-        color: #fff;
-        font-weight: 500;
-        margin-bottom: 16px;
-
-        @include MinDevice {
-          br {
-            display: none;
-          }
-        }
-      }
-
-      .desc {
-        line-height: 26px;
-        color: #e0e0e0;
-        letter-spacing: .5px;
-        font-size: 18px;
-        font-weight: 300;
-
-        @include mobile {
-          font-size: 16px;
-        }
-      }
-
-      picture {
+      img {
+        width: 100%;
         height: 100%;
-
-        img {
-          height: 100%;
-          object-fit: cover;
-          width: 100%;
-        }
+        object-fit: cover;
       }
     }
 
-    .top {
-      opacity: 0;
-      transform: translateY(100px);
-      grid-column: span 2;
-      grid-row: span 2;
-      height: calc((336px * 2) + 24px);
-
-      @include mobile {
-        grid-column: span 1;
-        height: 696px;
-      }
-
-      @include MinDevice {
-        grid-column: auto;
-        grid-area: span 2/span 1/span 2/span 1;
-        height: 480px;
-      }
-
-      &-desc {
-        opacity: 0;
-        transform: translateY(100px);
-        padding: 40px 32px;
-        background-color: #252525;
-      }
-
-      &-sub {
-        opacity: 0;
-        transform: translateY(100px);
-        background-color: #e7e7e7;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        picture {
-          transform: translateY(52px);
-        }
-
-        @include MinDevice {
-          height: 336px;
-        }
-      }
-
-    }
-
-    .middle {
-      opacity: 0;
+    &[class*="_description"] {
       transform: translateY(100px);
       padding: 40px 32px;
       background-color: #252525;
+      opacity: 0;
+    }
+    .description {
+      @include ellipse(5);
+    }
+  }
+
+  .design {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: calc((336px * 2) + 24px);
+    transform: translateY(100px);
+    opacity: 0;
+
+    @include mobile {
+      grid-column: span 1;
+      height: 30rem;
+    }
+
+    &_detail {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
+      transform: translateY(100px);
+      background-color: #e7e7e7;
+      opacity: 0;
 
-      @include MinDevice {
+      picture {
+        transform: translateY(52px);
+      }
+
+      @include mobile {
         height: 336px;
       }
+    }
+  }
 
-      .icon {
-        width: 64px;
-        background-color: #e0e0e0;
-        border-radius: 7px;
-        margin-bottom: 16px;
-        padding: 17.6px;
+  .application {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100px);
+    padding: 40px 32px;
+    background-color: #252525;
+    opacity: 0;
+
+    @include mobile {
+      height: 336px;
+    }
+
+    &_icon {
+      width: 64px;
+      margin-bottom: 16px;
+      padding: 17.6px;
+      border-radius: 7px;
+      background-color: #e0e0e0;
+    }
+
+    &_description {
+      display: flex;
+      flex-direction: column;
+      @include mobile {
+        height: 22rem;
       }
 
-      &-desc {
-        opacity: 0;
-        transform: translateY(100px);
-        padding: 40px 32px;
-        background-color: #252525;
-        display: flex;
-        flex-direction: column;
+      .application_link_area {
+        margin-top: auto;
 
-        @include MinDevice {
-          height: 336px;
-        }
-
-        .download {
-          margin-top: auto;
-
-          &>span {
-            display: inline-block;
-            width: 124px;
-            height: 35px;
-
-            &:before {
-              content: "";
-              display: block;
-
-
-              width: 100%;
-              height: 100%;
-            }
-
-            &.google {
-              background: url("../images/Playstore_Icon.svg") no-repeat;
-              background-size: contain;
-            }
-
-            &.appstore {
-              background: url("../images/AppStore_Icon.svg") no-repeat;
-              background-size: contain;
-            }
-          }
-        }
-      }
-
-      &-sub {
-        opacity: 0;
-        transform: translateY(100px);
-        grid-row: span 3;
-        height: calc((336px * 2) + 24px);
-        position: relative;
-        background-color: #252525;
-
-        .text-box {
+        @include mobile {
           display: flex;
           flex-direction: column;
-          justify-content: flex-end;
-          background: transparent;
-          position: relative;
-          z-index: 3;
-          height: 100%;
-          padding: 40px 32px;
+          margin-top: 1rem;
         }
 
-        // cell-gradient
-        .bg-gradient {
-          background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(26, 25, 25, .76));
-          z-index: 2;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0%;
-          bottom: 0%;
-          left: 0%;
-          right: 0%;
-        }
+        .google,
+        .app_store {
+          display: inline-block;
+          width: 124px;
+          height: 35px;
 
-        .image {
-          height: 100%;
-          position: absolute;
-          top: 1%;
-          left: 1%;
-          bottom: 0%;
-          right: 0%;
-          z-index: 1;
-
-          picture {
-            img {
-              object-position: 20% 50%;
-            }
+          @include mobile {
+            width: 150px;
+            height: 57px;
           }
+
+          &:before {
+            display: block;
+            width: 100%;
+            height: 100%;
+            content: "";
+          }
+        }
+
+        .google {
+          background: url("../images/ico_play_store.svg") no-repeat;
+          background-size: contain;
+        }
+
+        .app_store {
+          background: url("../images/ico_app_store.svg") no-repeat;
+          background-size: contain;
         }
       }
     }
+  }
 
-    .bottom {
-      opacity: 0;
-      transform: translateY(100px);
-      grid-column: span 2;
+  .easy_mount {
+    position: relative;
+    grid-row: span 3;
+    transform: translateY(100px);
+    height: calc((336px * 2) + 24px);
+    background-color: #252525;
+    opacity: 0;
 
-      @include mobile {
-        grid-column: span 1;
-      }
+    .bg_gradient {
+      position: absolute;
+      top: 0%;
+      bottom: 0%;
+      left: 0%;
+      right: 0%;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgba(26, 25, 25, 0.76)
+      );
+    }
 
-      @include MinDevice {
-        height: 336px;
-      }
+    .text_box {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      padding: 40px 32px;
+      background: transparent;
+    }
+
+    .bracket_image {
+      position: absolute;
+      top: 1%;
+      left: 1%;
+      bottom: 0%;
+      right: 0%;
+      height: 100%;
 
       picture {
         img {
-          object-position: 0% 40%;
+          object-position: 20% 50%;
         }
+      }
+    }
+  }
+
+  .white_layout {
+    grid-column: span 2;
+    transform: translateY(100px);
+    opacity: 0;
+
+    @include mobile {
+      grid-column: span 1;
+    }
+
+    picture {
+      img {
+        object-position: 0% 40%;
       }
     }
   }
 }
 
-.section-cta {
-  height: 300vh;
-
-  @include MinDevice {
-    padding-top: 150px;
-  }
-
-  .cta-wrapper {
-    background: url("../images/cta-bg.png") no-repeat;
-    background-size: cover;
-    height: 100vh;
-    // height: calc(100vh - 80px);
-    position: sticky;
-    top: 0;
-
-    @include MinDevice {
-      height: 130vh;
+.section_engineered {
+  background: url("../images/img_engineered_background.png") no-repeat;
+  background-size: cover;
+  @include mobile {
+    .inner {
+      flex-direction: column-reverse;
+      justify-content: space-around;
+      height: 106vh;
+      padding-top: 136px;
+      padding-bottom: 0;
     }
   }
 
-
-  // ???? 이미지가 왤케 길어
   #canvas2 {
-    display: block;
-    position: absolute;
-    top: 30%;
-    left: 0;
-    width: 75vw;
-    height: 40vw;
-
-    @include MinDevice {
-      width: 55vw;
-      height: 55vw;
-      left: 50%;
-      transform: translate(-50%, 30%);
+    @include desktop {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 40vh;
+    }
+    @include mobile {
+      top: 60%;
     }
   }
 
-
-  .inner1 {
-    display: flex;
-    position: relative;
+  .text_wrap {
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 20rem;
 
     @include mobile {
       flex-direction: column-reverse;
-      justify-content: space-around;
-      padding: 150px 24px;
+      height: 85vh;
+      padding-bottom: 0;
     }
-
   }
 
-  .right,
-  .left {
+  .text_box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 50%;
-    transform: translateY(50%);
+
+    @include desktop {
+      transform: none;
+    }
 
     @include mobile {
-      width: 100%
-    }
+      width: 100%;
 
-
-
-    .headline {
-      font-weight: 500;
-    }
-
-    .desc {
-      max-width: 480px;
-
-      &-small {
-        letter-spacing: 0.5px;
-        margin-top: 16px;
-        font-size: 18px;
-        line-height: 24px;
-        font-weight: 300;
-
-        br {
-          display: none;
-        }
-
-        @include mobile {
-          font-size: 16px;
-
-          br {
-            display: block;
-          }
-        }
+      .headline {
+        padding-left: 0;
+        font-size: 33px;
       }
+    }
+  }
 
-      &-spec {
+  .description {
+    margin-top: 16px;
+    @include ellipse(30);
+  }
+
+  .engineering_description {
+    .headline {
+      font-size: 60px;
+      opacity: 0;
+      @include mobile {
+        font-size: 32px;
+      }
+    }
+
+    .description_box {
+      opacity: 0;
+    }
+
+    .description {
+      color: #fff;
+      &:last-child {
         margin-top: 30px;
       }
     }
-  }
 
-  .left {
-    padding-left: 64px;
-
-    @include mobile {
-      padding-left: 0;
-    }
-
-    @include MinDevice {
-      transform: translateY(-30%);
-    }
-
-    .headline {
-      opacity: 0;
-      color: #fff;
-      font-size: 60px;
-
-      @include mobile {
-        font-size: 33px;
-        white-space: nowrap;
-        padding-left: 0;
-      }
-
-    }
-
-    .desc {
-      opacity: 0;
-      color: #fff;
-    }
-
-    .cursorEffect {
+    .cursor_effect {
+      overflow: hidden;
+      display: block;
+      position: relative;
       margin-top: 43px;
-      border: 2px solid #fff;
-      border-radius: 112px;
-      padding: 12px 28px;
-      display: inline-block;
+      color: #fff;
+      cursor: none;
 
-      a {
-        display: block;
-        width: 90px;
-        height: 16px;
-        position: relative;
-        overflow: hidden;
-        cursor: none;
-
-        span {
-          position: absolute;
-          left: 0;
-          transition: 0.3s;
-
-          &.top {
-            top: 0%;
-          }
-
-          &.bottom {
-            top: 100%;
-          }
-        }
+      .text_top,
+      .text_bottom {
+        width: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
       }
 
-      &.on {
-        background: rgba(255, 255, 255, 0.3);
-        border-color: rgb(97, 97, 97);
+      .text_top {
+        top: 50%;
+      }
 
-        .top {
-          top: -105%;
+      .text_bottom {
+        top: 130%;
+      }
+
+      &.is_active {
+        .text_top {
+          top: -100%;
         }
 
-        .bottom {
-          top: 0;
+        .text_bottom {
+          top: 50%;
         }
       }
     }
   }
 
-
-  .right {
+  .engineering_promotion {
     padding-left: 104px;
     opacity: 1;
 
-    @include MinDevice {
-      transform: translateY(0%);
-    }
-
     @include mobile {
       padding-left: 0;
     }
 
-    @include tablet {
-      padding-left: 116px;
-    }
-
-
-
-
     .headline {
-      color: #3c4146;
       font-size: 48px;
-
+      color: #3c4146;
       @include mobile {
-        font-size: 33px;
-        white-space: nowrap;
-        padding-left: 0;
+        font-size: 32px;
       }
     }
 
-    .desc {
+    .description {
       color: #5e646b;
     }
   }
-
-
-
-
 }
 
-.section-faq {
+.section_faq {
   background-color: #c9c8c8;
 
-  .inner1 {
-    display: flex;
-    gap: 133px;
-    color: #575757;
-    padding: 112px 0;
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 70px;
     padding: 112px 40px;
+    color: #575757;
 
     @include mobile {
-      flex-direction: column;
-      gap: 64px;
-    }
-
-    .right {
-      flex: 1;
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
 
     .headline {
       margin-top: 20px;
       font-size: 36px;
-      font-weight: 500;
+      color: #575757;
 
-      &-small {
+      @include mobile {
+        font-size: 24px;
+      }
+
+      &_description {
         margin-top: 16px;
-        letter-spacing: 0.5px;
         font-size: 18px;
-        font-weight: 300;
+        letter-spacing: 0.5px;
 
         @include mobile {
           font-size: 16px;
@@ -1036,84 +848,87 @@ cta.container {
     }
 
     .faq {
-      &-item {
-        .title {
-          font-size: 24px;
-          font-weight: 300;
+      &_list {
+        flex: 1;
+      }
+
+      &_item {
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+        &:first-child {
+          padding-top: 0;
+        }
+
+        &_title {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          font-size: 24px;
           cursor: none;
 
           @include mobile {
-            font-size: 21px;
+            font-size: 18px;
           }
 
           &::after {
-            content: "";
             display: block;
             width: 21px;
             height: 21px;
-            background: url("../images/arrow.png") no-repeat;
+            background: url("../images/ico_arrow.png") no-repeat;
             background-size: cover;
             transform: rotate(-90deg);
             transition: 0.3s;
+            content: "";
           }
 
-          &.on {
+          &.is_active {
             &::after {
               transform: rotate(0);
             }
           }
-
         }
       }
     }
 
-
-
     .sub {
-      &-list {
-        max-height: 0;
+      &_list {
         overflow: hidden;
+        max-height: 0;
         transition: 0.3s;
 
-        &.on {
+        &.is_show {
           max-height: calc((26px * 2) + 16px);
-        }
-      }
-
-      &-item {
-        a {
-          letter-spacing: 0.5px;
-          font-size: 18px;
-          font-weight: 300;
-          display: block;
-          padding-top: 16px;
-          line-height: 26px;
-
           @include mobile {
-            font-size: 16px;
+            max-height: calc((26px * 4) + 16px);
           }
         }
       }
 
-    }
+      &_item {
+        padding-top: 16px;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+        line-height: 26px;
 
-    .divider {
-      height: 1px;
-      background-color: rgba(0, 0, 0, .15);
-      margin-top: 24px;
-      margin-bottom: 24px;
-    }
+        @include mobile {
+          font-size: 16px;
 
+          letter-spacing: -0.01em;
+        }
+      }
+    }
   }
 }
 
 .badge {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  z-index: 999;
+  display: none;
+  @include noneMobile {
+    display: block;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
 }
