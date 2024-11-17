@@ -18,16 +18,34 @@
 8. 마우스포인터 안보임
 
 
+## 콘솔에러 0 <br>
+<img src="https://github.com/user-attachments/assets/b933ef05-8d58-4d88-8361-91842b47906b" width=800> <br>
+
 ## 프로젝트 웹표준(W3C의 Markup Validation Service)
 결과 : 0개 <br>
 <img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/d46e6408-480b-4baf-ab9a-47b87c150ef7" width=800> <br>
 
 
 ## 프로젝트 웹접근성
+- chrome Lighthouse 결과 :<br>
+모바일 디바이스의 접근성 표준을 준수하였는지 로컬에서 검사할수 있는 goole 의 lighthouse 로 검사하면 개선할점이 Accessibility  항목과 Best Practices 항목에서 나타납니다.  <br>
+[1] 데스크탑
+<img src="https://github.com/user-attachments/assets/d5f14b56-4f7b-453d-8529-13ef3dddb345" width=800> <br>
+[2] 모바일
+<img src="https://github.com/user-attachments/assets/b3f526c5-cf1c-4801-a716-8600558df8b1" width=800> <br>
 - Open-WAX 결과 : error 0<br>
 <img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/2a1b47af-ad13-431d-8ad4-0a6b4cefb43a" width=800> <br>
 - WAVE 결과: error 0<br>
 <img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/10c5a0c3-358a-4556-b26c-7401a134d7ee" width=800>
+
+
+## 모바일 디바이스 검수
+- 안드로이드 Note20 울트라
+<video src="https://github.com/user-attachments/assets/9cf4b0d7-80dd-4ce0-9c8e-97076c7fe6a0" autoplay muted playsinline loop></video>
+- 아이폰 SE2 
+<video src="https://github.com/user-attachments/assets/77e12afe-2460-4e91-a0c7-bedde8b4e429" autoplay muted playsinline loop></video>
+- 아이패드 6
+<video src="https://github.com/user-attachments/assets/ff726cdf-36e7-48f8-8a68-010d70e08c5a" autoplay muted playsinline loop></video>
 
 
 ## 기술 스택

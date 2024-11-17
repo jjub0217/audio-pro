@@ -28,7 +28,6 @@ textTl
   .to(".loading_page .loading_page_header", { yPercent: -150 }, "a")
   .to(".loading_page .count", { yPercent: 150 }, "a")
   .to(".loading_page", { display: "none" }, "a")
-  .to(".wrapper", { opacity: 1, display: "block" });
 
 
 const canvas1 = document.querySelector("#canvas1");
