@@ -19,7 +19,7 @@
 
 
 ## 콘솔에러 0 <br>
-<img src="https://github.com/user-attachments/assets/b933ef05-8d58-4d88-8361-91842b47906b" width=800> <br>
+<img src="https://github.com/user-attachments/assets/e88c30d5-d6b4-4259-9293-f8f589237fd7" width=800> <br>
 
 ## 프로젝트 웹표준(W3C의 Markup Validation Service)
 결과 : 0개 <br>
@@ -30,9 +30,9 @@
 - chrome Lighthouse 결과 :<br>
 모바일 디바이스의 접근성 표준을 준수하였는지 로컬에서 검사할수 있는 goole 의 lighthouse 로 검사하면 개선할점이 Accessibility  항목과 Best Practices 항목에서 나타납니다.  <br>
 [1] 데스크탑
-<img src="https://github.com/user-attachments/assets/d5f14b56-4f7b-453d-8529-13ef3dddb345" width=800> <br>
+<img src="https://github.com/user-attachments/assets/45c7a1dc-2862-4924-a4f0-b97ad43cc853" width=800> <br>
 [2] 모바일
-<img src="https://github.com/user-attachments/assets/b3f526c5-cf1c-4801-a716-8600558df8b1" width=800> <br>
+<img src="https://github.com/user-attachments/assets/57d10dba-03a7-4bdb-aabc-f23efd441888" width=800> <br>
 - Open-WAX 결과 : error 0<br>
 <img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/2a1b47af-ad13-431d-8ad4-0a6b4cefb43a" width=800> <br>
 - WAVE 결과: error 0<br>

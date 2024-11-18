@@ -31,6 +31,7 @@ textTl
 
 
 const canvas1 = document.querySelector("#canvas1");
+
 canvas1.width =  window.innerWidth > 990 ? 2880 : 1080;
 canvas1.height = window.innerWidth > 990 ? 1600 : 1920;
 const ctx1 = canvas1.getContext('2d');
@@ -41,7 +42,7 @@ const card1 = {
 };
 
 const currentFrame1 = (idx) => {
-  return window.innerWidth > 479
+  return window.innerWidth > 990
   ? `./assets/images/img_desktop_speaker${idx
       .toString()
       .padStart(3, "0")}.png`
@@ -68,14 +69,14 @@ const canvas2 = document.querySelector("#canvas2");
 canvas2.width = window.innerWidth > 990 ? 2880 : 1080;
 canvas2.height = window.innerWidth > 990 ? 1600 : 1080;
 const ctx2 = canvas2.getContext("2d");
-const frameCount2 = window.innerWidth > 990 ? 90 : 41;
+const frameCount2 = window.innerWidth > 990 ? 90 : 55;
 const images2 = [];
 const card2 = {
   frame: 0,
 };
 
 const currentFrame2 = (idx) => {
-  return window.innerWidth > 479
+  return window.innerWidth > 990
     ? `./assets/images/img_desktop_engineered${idx
         .toString()
         .padStart(3, "0")}.png`
@@ -208,8 +209,8 @@ gsap
     scrollTrigger: {
       trigger: document.querySelector(".section_engineered"),
       start: "0% 0%",
-      end: "100% 50%",
-      markers: false,
+      end: "100% 0%",
+      markers: true,
       scrub: 1,
     },
     onUpdate: render2,
@@ -228,8 +229,10 @@ gsap
   .to(
     document.querySelector("#canvas2"),
     {
-      yPercent: window.innerWidth > 990 ? 0 : -120,
+      delay: 10,
+      yPercent: window.innerWidth > 990 ? 0 : -80,
       duration: 1,
+      ease: "power2.out",
     },
     "a"
   )
@@ -252,22 +255,26 @@ gsap
     },
     "a"
   )
-  .addLabel("b")
   .to(
-    document.querySelector(".section_engineered"),
+    document.querySelector(".background_overlay"),
     {
-      background: "transparent",
+      opacity: 0,
+      duration: 2,
+      ease: "power2.out",
     },
-    "b"
+    "a+=0.3"
   )
   .to(
     document.querySelector(
       ".section_engineered .engineering_description .headline"
     ),
     {
-      opacity: 1,
+      duration: 1,
+      opacity: 1, 
+      ease: "power2.out",
+      color: "#fff",
     },
-    "b"
+    "a+=0.5"
   )
   .to(
     document.querySelector(
@@ -277,8 +284,9 @@ gsap
       duration: 1,
       opacity: 1,
     },
-    "b"
+    "a+=2"
   );
+
 
 gsap
   .timeline({

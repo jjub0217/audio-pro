@@ -74,7 +74,7 @@
       }
     }
 
-    @include mobile {
+    @include tablet {
       display: none;
     }
   }
@@ -82,7 +82,7 @@
   .menu_button {
     display: none;
 
-    @include mobile {
+    @include tablet {
       display: block;
       width: 60px;
       height: 60px;

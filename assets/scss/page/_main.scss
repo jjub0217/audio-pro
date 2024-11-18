@@ -25,7 +25,7 @@
 .description_box {
   max-width: 480px;
   padding-left: 8px;
-  @include mobile {
+  @include tablet {
     padding: 0;
   }
 }
@@ -35,7 +35,7 @@
   color: #e0e0e0;
   letter-spacing: 0.5px;
   line-height: 26px;
-  @include mobile {
+  @include tablet {
     font-size: 16px;
   }
 }
@@ -55,9 +55,11 @@
       padding: 112px 40px 20px 40px;
     }
 
+    @include tablet {
+      padding: 0 1.5rem 0 1.5rem;
+    }
     @include mobile {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      padding: 170px 1.5rem 40px 1.5rem;
     }
   }
   #canvas1,
@@ -79,12 +81,14 @@
     padding: 7rem 2.5rem;
     margin: 0 auto;
 
+    @include tablet {
+      justify-content: center;
+      padding: 0;
+      height: 80vh;
+    }
     @include mobile {
       justify-content: space-between;
       align-items: flex-start;
-      height: 80vh;
-      padding: 0;
-      // padding: 112px 40px;
     }
   }
 }
@@ -96,11 +100,17 @@
       width: 100vw;
       height: 40vh;
     }
+    @include tablet {
+      top: 0%;
+      height: 90vh;
+      width: 70vw;
+    }
 
     @include mobile {
       top: auto;
       height: 80vh;
       bottom: 16%;
+      width: 100vw;
     }
   }
 
@@ -126,10 +136,14 @@
     width: calc(50% - 80px);
     height: 100%;
 
-    @include mobile {
+    @include tablet {
       right: auto;
       justify-content: flex-end;
       width: 100%;
+      height: 80%;
+    }
+    @include mobile {
+      height: 100%;
     }
 
     .title {
@@ -164,6 +178,15 @@
   height: 100vh;
   margin-bottom: 192px;
 
+  @include tablet {
+    height: 85vh;
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    height: 85vh;
+    margin-bottom: 80px;
+  }
   &::after {
     display: block;
     position: absolute;
@@ -178,10 +201,6 @@
     content: "";
   }
 
-  @include mobile {
-    height: 85vh;
-    margin-bottom: 80px;
-  }
   .background {
     position: absolute;
     left: 50%;
@@ -215,6 +234,10 @@
     .headline {
       font-size: 60px;
 
+      @include tablet {
+        font-size: 48px;
+      }
+
       @include mobile {
         font-size: 32px;
       }
@@ -223,7 +246,7 @@
     .description_box {
       max-width: 720px;
       margin-top: 16px;
-      @include mobile {
+      @include tablet {
         max-width: 480px;
         margin-top: 0;
       }
@@ -255,7 +278,7 @@
     overflow: hidden;
     height: 100vh;
 
-    @include mobile {
+    @include tablet {
       display: flex;
       flex-direction: column-reverse;
       align-items: center;
@@ -268,9 +291,15 @@
     max-width: 480px;
     padding: 0 40px;
 
-    @include mobile {
+    @include tablet {
+      max-width: none;
       justify-content: flex-end;
+      padding: 0 40px;
+      z-index: 1;
+    }
+    @include mobile {
       padding: 0;
+      max-width: 480px;
     }
 
     .headline {
@@ -305,7 +334,14 @@
       width: 60vw;
     }
 
+    @include tablet {
+      right: -2%;
+      height: 72vh;
+      width: 100vw;
+      top: 46%;
+    }
     @include mobile {
+      width: 60vw;
       height: 40vh;
       left: 50%;
       right: auto;
@@ -470,6 +506,11 @@
     grid-template-rows: repeat(4, 1fr);
     gap: 24px;
 
+    @include tablet {
+      grid-template-rows: repeat(5, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     @include mobile {
       grid-template-rows: auto auto auto auto;
       grid-template-columns: 1fr;
@@ -513,8 +554,11 @@
     transform: translateY(100px);
     opacity: 0;
 
-    @include mobile {
+    @include tablet {
       grid-column: span 1;
+      height: auto;
+    }
+    @include mobile {
       height: 30rem;
     }
 
@@ -661,7 +705,7 @@
     transform: translateY(100px);
     opacity: 0;
 
-    @include mobile {
+    @include tablet {
       grid-column: span 1;
     }
 
@@ -674,15 +718,35 @@
 }
 
 .section_engineered {
-  background: url("../images/img_engineered_background.png") no-repeat;
-  background-size: cover;
-  @include mobile {
+  height: 136vh;
+
+  position: relative;
+  overflow: hidden;
+  .background_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/img_engineered_background.png") no-repeat;
+    background-size: cover;
+    opacity: 1; /* 초기 불투명도 */
+    z-index: -1; /* 내용 뒤에 위치 */
+  }
+  @include tablet {
     .inner {
       flex-direction: column-reverse;
       justify-content: space-around;
-      height: 106vh;
+      height: 124vh;
       padding-top: 136px;
       padding-bottom: 0;
+    }
+  }
+
+  @include mobile {
+    .inner {
+      padding-top: 136px;
+      padding-top: 136px;
     }
   }
 
@@ -692,8 +756,12 @@
       transform: translate(-50%, -50%);
       height: 40vh;
     }
+    @include tablet {
+      top: 47%;
+      height: 55vh;
+    }
     @include mobile {
-      top: 60%;
+      height: 40vh;
     }
   }
 
@@ -702,9 +770,14 @@
     align-items: center;
     padding-bottom: 20rem;
 
-    @include mobile {
+    @include tablet {
       flex-direction: column-reverse;
-      height: 85vh;
+      justify-content: space-between;
+      height: 100%;
+      padding-bottom: 0;
+    }
+
+    @include mobile {
       padding-bottom: 0;
     }
   }
@@ -718,13 +791,22 @@
     @include desktop {
       transform: none;
     }
-
-    @include mobile {
+    @include tablet {
       width: 100%;
+    }
 
-      .headline {
+    .headline {
+      font-size: 48px;
+      color: #3c4146;
+
+      @include tablet {
+        width: 100%;
         padding-left: 0;
-        font-size: 33px;
+        font-size: 36px;
+      }
+
+      @include mobile {
+        font-size: 32px;
       }
     }
   }
@@ -738,8 +820,9 @@
     .headline {
       font-size: 60px;
       opacity: 0;
-      @include mobile {
-        font-size: 32px;
+
+      @include tablet {
+        font-size: 48px;
       }
     }
 
@@ -794,16 +877,8 @@
     padding-left: 104px;
     opacity: 1;
 
-    @include mobile {
+    @include tablet {
       padding-left: 0;
-    }
-
-    .headline {
-      font-size: 48px;
-      color: #3c4146;
-      @include mobile {
-        font-size: 32px;
-      }
     }
 
     .description {
@@ -822,7 +897,7 @@
     padding: 112px 40px;
     color: #575757;
 
-    @include mobile {
+    @include tablet {
       grid-template-columns: 1fr;
       gap: 40px;
     }
