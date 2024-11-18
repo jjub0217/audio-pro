@@ -974,22 +974,21 @@
 
         &.is_show {
           max-height: calc((26px * 2) + 16px);
+
+          .sub_item {
+            padding-top: 16px;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            line-height: 26px;
+
+            @include mobile {
+              font-size: 16px;
+              letter-spacing: -0.01em;
+            }
+          }
           @include mobile {
             max-height: calc((26px * 4) + 16px);
           }
-        }
-      }
-
-      &_item {
-        padding-top: 16px;
-        font-size: 18px;
-        letter-spacing: 0.5px;
-        line-height: 26px;
-
-        @include mobile {
-          font-size: 16px;
-
-          letter-spacing: -0.01em;
         }
       }
     }

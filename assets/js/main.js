@@ -210,7 +210,7 @@ gsap
       trigger: document.querySelector(".section_engineered"),
       start: "0% 0%",
       end: "100% 0%",
-      markers: true,
+      markers: false,
       scrub: 1,
     },
     onUpdate: render2,
