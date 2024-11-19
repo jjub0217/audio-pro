@@ -87,7 +87,7 @@
   .gnb_mobile {
     display: none;
 
-    @include mobile {
+    @include tablet {
       display: block;
       position: fixed;
       right: 0;
