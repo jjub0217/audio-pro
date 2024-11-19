@@ -818,10 +818,26 @@ fieldset {
   display: flex;
   margin-top: 48px;
 }
+@media screen and (max-width: 700px) {
+  .section_wireless .text_wrap .description_box .icon_box {
+    justify-content: space-between;
+  }
+}
 .section_wireless .text_wrap .description_box .icon {
   width: 94px;
   height: 24px;
   margin-right: 3rem;
+}
+@media screen and (max-width: 990px) {
+  .section_wireless .text_wrap .description_box .icon {
+    width: auto;
+    height: auto;
+  }
+}
+@media screen and (max-width: 700px) {
+  .section_wireless .text_wrap .description_box .icon {
+    margin-right: 0;
+  }
 }
 
 .section_old_school {

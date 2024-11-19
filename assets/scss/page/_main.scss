@@ -254,12 +254,23 @@
       .icon_box {
         display: flex;
         margin-top: 48px;
+
+        @include mobile {
+          justify-content: space-between;
+        }
       }
 
       .icon {
         width: 94px;
         height: 24px;
         margin-right: 3rem;
+        @include tablet {
+          width: auto;
+          height: auto;
+        }
+        @include mobile {
+          margin-right: 0;
+        }
       }
     }
   }
