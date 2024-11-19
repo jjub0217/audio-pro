@@ -361,19 +361,28 @@ menuButton.addEventListener("click", function (e) {
 
 faqItem.forEach(item => {
   item.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (!e.target.matches(".faq_item > a")) return;
-    e.target.classList.toggle("is_active"); 
-    e.target.nextElementSibling.classList.toggle("is_show");
+    if (item.contains(e.target)) {
+      const faqItemTitle = item.querySelector(".faq_item_title");
+      const subList = faqItemTitle.nextElementSibling;
+      let subListId = subList.getAttribute("id");
+      if (!subListId) {
+        subListId = `sub_list_${Math.random().toString(36).substring(2, 9)}`;
+        subList.setAttribute("id", subListId);
+      }
+
+      faqItemTitle.setAttribute("aria-controls", subListId);
+
+      if (faqItemTitle.ariaExpanded === "false") {
+        faqItemTitle.setAttribute("aria-expanded", "true");
+        faqItemTitle.classList.add("is_active");
+        subList.classList.add("is_show");
+      } else {
+        faqItemTitle.setAttribute("aria-expanded", "false");
+        faqItemTitle.classList.remove("is_active");
+        subList.classList.remove("is_show");
+      }
+    }
   })
-  item.addEventListener("mouseover", function () {
-    gsap.to(".cursor", {
-      scale: 1.5,
-    });
-  });
-  item.addEventListener("mouseout", function () {
-    gsap.to(".cursor", { scale: 1 });
-  });
 });
 
 
@@ -389,25 +398,10 @@ cursorEffect.forEach(element => {
     gsap.to(".cursor", {
       scale: 1.5,
     });
-    e.target.classList.add("is_active");
   });
 
   element.addEventListener("mouseout", function (e) {
     gsap.to(".cursor", { scale: 1 });
-    e.target.classList.remove("is_active");
   });
 
 })
-
-  
-toEnglish.addEventListener("mouseover", function (e) {
-  gsap.to(".cursor", {
-    scale: 1.5,
-  });
-});
-
-toEnglish.addEventListener("mouseout", function (e) {
-  gsap.to(".cursor", { scale: 1 });
-});
-
-

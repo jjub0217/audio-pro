@@ -101,7 +101,7 @@
       height: 40vh;
     }
     @include tablet {
-      top: 0%;
+      top: 0;
       height: 90vh;
       width: 70vw;
     }
@@ -191,9 +191,9 @@
     display: block;
     position: absolute;
     top: auto;
-    bottom: 0%;
-    left: 0%;
-    right: 0%;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
     width: 100%;
     height: 15rem;
@@ -660,10 +660,10 @@
 
     .bg_gradient {
       position: absolute;
-      top: 0%;
-      bottom: 0%;
-      left: 0%;
-      right: 0%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       z-index: 2;
       width: 100%;
       height: 100%;
@@ -688,8 +688,8 @@
       position: absolute;
       top: 1%;
       left: 1%;
-      bottom: 0%;
-      right: 0%;
+      bottom: 0;
+      right: 0;
       height: 100%;
 
       picture {
@@ -711,17 +711,17 @@
 
     picture {
       img {
-        object-position: 0% 40%;
+        object-position: 0 40%;
       }
     }
   }
 }
 
 .section_engineered {
+  overflow: hidden;
+  position: relative;
   height: 136vh;
 
-  position: relative;
-  overflow: hidden;
   .background_overlay {
     position: absolute;
     top: 0;
@@ -730,8 +730,8 @@
     height: 100%;
     background: url("../images/img_engineered_background.png") no-repeat;
     background-size: cover;
-    opacity: 1; /* 초기 불투명도 */
-    z-index: -1; /* 내용 뒤에 위치 */
+    opacity: 1;
+    z-index: -1;
   }
   @include tablet {
     .inner {
@@ -815,6 +815,9 @@
     margin-top: 16px;
     @include ellipse(30);
   }
+  .purchase_item {
+    margin-top: 43px;
+  }
 
   .engineering_description {
     .headline {
@@ -834,41 +837,6 @@
       color: #fff;
       &:last-child {
         margin-top: 30px;
-      }
-    }
-
-    .cursor_effect {
-      overflow: hidden;
-      display: block;
-      position: relative;
-      margin-top: 43px;
-      color: #fff;
-      cursor: none;
-
-      .text_top,
-      .text_bottom {
-        width: 100%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-      }
-
-      .text_top {
-        top: 50%;
-      }
-
-      .text_bottom {
-        top: 130%;
-      }
-
-      &.is_active {
-        .text_top {
-          top: -100%;
-        }
-
-        .text_bottom {
-          top: 50%;
-        }
       }
     }
   }
@@ -939,6 +907,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          width: 100%;
           font-size: 24px;
           cursor: none;
 
@@ -974,17 +943,17 @@
 
         &.is_show {
           max-height: calc((26px * 2) + 16px);
+        }
 
-          .sub_item {
-            padding-top: 16px;
-            font-size: 18px;
-            letter-spacing: 0.5px;
-            line-height: 26px;
+        .sub_item {
+          padding-top: 16px;
+          font-size: 18px;
+          letter-spacing: 0.5px;
+          line-height: 26px;
 
-            @include mobile {
-              font-size: 16px;
-              letter-spacing: -0.01em;
-            }
+          @include mobile {
+            font-size: 16px;
+            letter-spacing: -0.01em;
           }
           @include mobile {
             max-height: calc((26px * 4) + 16px);

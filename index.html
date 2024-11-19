@@ -26,7 +26,7 @@
     <span class="blind">마우스커서</span>
   </div>
 
-  <header class="header" id="header">
+  <header id="header" class="header">
     <div class="inner">
       <h1 class="logo">
         <a href="">
@@ -35,24 +35,21 @@
       </h1>
       <nav class="gnb">
         <ul class="nav_list">
-          <li class="nav_item">
-            <a href="">
-              <span>Weitere Produkte</span>
-            </a>
-          </li>
           <li class="nav_item cursor_effect">
-            <a href="" class="nav_link">
+            <a href="" class="nav_link">Weitere Produkte</a>
+          </li>
+          <li class="nav_item cursor_effect purchase_item">
+            <a href="" class="purchase_link">
               <span class="text_top">Jetzt Kaufen</span>
               <span class="text_bottom" aria-hidden="true">Jetzt Kaufen</span>
             </a>
           </li>
         </ul>
       </nav>
-
       <!-- [D] .menu_button 을 클릭하면 .gnb_mobile 에 .is_show 클래스네임이 추가 및 삭제 -->
-      <button aria-expanded="false" aria-haspopup="menu" class="menu_button" aria-label="메뉴열기" type="button">
+      <button type="button" aria-expanded="false" aria-haspopup="menu" class="menu_button" aria-label="메뉴열기">
         <svg class="burger_button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 800 800" width="800" height="800">
+          viewBox="0 0 800 800" width="800" height="800" aria-label="메뉴열기 버튼">
           <g transform="matrix(1,0,0,1,447,534)">
             <g opacity="1" transform="matrix(1,0,0,1,0,0)">
               <path fill="rgb(255,255,255)" fill-opacity="1" d=" M-306,-34 C-306,-34 212,-34 212,-34"></path>
@@ -71,7 +68,7 @@
           </g>
         </svg>
         <svg class="close_button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 800 800" width="800" height="800">
+          viewBox="0 0 800 800" width="800" height="800" aria-label="메뉴닫기 버튼">
           <g transform="matrix(0.7071067690849304,0.7071067690849304,-0.7071067690849304,0.7071067690849304,409.1923828125,457.275634765625)"
             opacity="1" style="display: block;">
             <g opacity="1" transform="matrix(1,0,0,1,0,0)">
@@ -95,27 +92,21 @@
     </div>
 
     <nav class="gnb_mobile">
-      <p class="title">Weitere Produkte</p>
-      <a href="" class="purchase_link">
-        Jetzt Kaufen
-      </a>
+      <strong class="title">Weitere Produkte</strong>
+      <a href="" class="purchase_link">Jetzt Kaufen</a>
     </nav>
   </header>
-  <main class="container" id="main">
+  <main id="main" class="container" >
     <section class="section_speaker">
       <div class="inner">
       <canvas id="canvas1">
         <span class="blind">스피커 이미지</span>
       </canvas>
         <div class="text_wrap">
-
           <div class="text_box">
-            <p class="description">
-              Kleine Boxen. Großer Klang.
-            </p>
+            <p class="description">Kleine Boxen. Großer Klang.</p>
             <h2 class="headline">Audio Pro A28</h2>
           </div>
-
           <div class="text_box">
             <strong class="title">
               Kleine Boxen.<br>
@@ -134,12 +125,11 @@
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
     <section class="section_wireless">
-      <div class="background" aria-hidden="true" role="img">
+      <div class="background" role="img" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080"
           width="1920" height="1080" preserveAspectRatio="xMidYMid meet"
           style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
@@ -199,9 +189,7 @@
       </div>
       <div class="inner">
         <div class="text_wrap">
-          <h2 class="headline">
-            Dein Sound. Deine Wahl.
-          </h2>
+          <h2 class="headline">Dein Sound. Deine Wahl.</h2>
           <div class="description_box">
             <p class="description">
               Die Audio Pro 28 verbinden sich drahtlos mit all Deinen Geräten und geben Dir die volle Kontrolle über
@@ -212,7 +200,7 @@
             </p>
             <div class="icon_box">
               <i class="icon">
-                <img src="./assets/images/ico_audio_pro.svg" alt="연결기기 오디오프로 아이콘">
+                <img src="./assets/images/ico_audio_pro.svg" alt="오디오프로 연결기기 아이콘">
               </i>
               <i class="icon">
                 <img src="./assets/images/ico_chromecast.svg" alt="연결기기 크롬캐스트 아이콘">
@@ -238,7 +226,7 @@
             Sound aus jedem Gerät herauskitzeln.
           </p>
         </div>
-        <div class="speaker" role="img">
+        <div class="speaker">
           <picture>
             <source media="(max-width: 767px)" srcset="./assets/images/img_old_school2.png">
             <source media="(max-width: 991px)" srcset="./assets/images/img_old_school3.png">
@@ -307,7 +295,6 @@
               <img src="./assets/images/img_white_design1.jpg" alt="white design device">
             </picture>
           </div>
-
           <div class="design_description grid_cell">
             <strong class="title">Auch in Weiß erhältlich</strong>
             <p class="description">
@@ -334,7 +321,6 @@
             </div>
             <strong class="title">Audio Pro Control</strong>
           </div>
-
           <div class="application_description grid_cell">
             <strong class="title">Steuerung per App</strong>
             <p class="description">
@@ -342,16 +328,14 @@
               App kannst Du Deine Lautsprecher ganz easy vom Sofa steuern.
             </p>
             <div class="application_link_area">
-              <a href="https://play.google.com/store" class="google">
+              <a href="https://play.google.com/store" class="google cursor_effect">
                 <span class="blind">google play store icon</span>
               </a>
-              <a href="https://www.apple.com/app-store" class="app_store">
+              <a href="https://www.apple.com/app-store" class="app_store cursor_effect">
                 <span class="blind">apple app store icon</span>
               </a>
             </div>
           </div>
-
-
           <div class="easy_mount grid_cell">
             <div class="bg_gradient" aria-hidden="true"></div>
             <div class="text_box">
@@ -401,10 +385,12 @@
               <p class="description">
                 In nur 3-5 Tagen bei dir • 1 Jahr Garantie • Nur 599€
               </p>
-              <a href="" class="cursor_effect">
-                <span class="text_top">Jetzt Kaufen</span>
-                <span class="text_bottom" aria-hidden="true">Jetzt Kaufen</span>
-              </a>
+              <p class="cursor_effect purchase_item">
+                <a href="" class="purchase_link">
+                  <span class="text_top">Jetzt Kaufen</span>
+                  <span class="text_bottom" aria-hidden="true">Jetzt Kaufen</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="text_box engineering_promotion">
@@ -433,87 +419,85 @@
           <p class="headline_description">Hier findest Du alle technischen Details der Audio Pro 28.</p>
         </div>
         <ul class="faq_list">
-          <!-- [D] .faq_item 을 클릭하면, 클릭한 .faq_item 에 .is_active 클래스네임이 추가 및 삭제 -->
-          <!-- [D] .faq_item 을 클릭하면, 클릭한 .faq_item 의 형제요소인 .sub_list 에 .is_show 클래스네임이 추가 및 삭제 -->
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Produktinformation</a>
+          <!-- [D] .faq_item 을 클릭하면, 클릭한 .faq_item_title 에 .is_active 클래스네임이 추가 및 삭제 -->
+          <!-- [D] .faq_item 을 클릭하면, 클릭한 .faq_item_title 의 형제요소인 .sub_list 에 .is_show 클래스네임이 추가 및 삭제 -->
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Produktinformation</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">Produktkategorie: Home | Produkttyp: Lautsprecher | Erhältliche Farben: Schwarz & Weiß |
+                Produktkategorie: Home | Produkttyp: Lautsprecher | Erhältliche Farben: Schwarz & Weiß |
                   Beschreibung: Wireless Muliroom
-                  Speaker</a>
+                  Speaker
               </li>
             </ul>
           </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Abmessungen</a>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Abmessungen</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">Höhe: 238mm | Breite: 150mm | Tiefe: 200mm | Gewicht: 3,3kg</a>
+                Höhe: 238mm | Breite: 150mm | Tiefe: 200mm | Gewicht: 3,3kg
               </li>
             </ul>
           </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Komponenten</a>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Komponenten</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">Amplifier: Digital Class D - 2 x 75 W | Tweeter: 1″ textile dome | Woofer: 1 x 4.5″</a>
+                Amplifier: Digital Class D - 2 x 75 W | Tweeter: 1″ textile dome | Woofer: 1 x 4.5″
               </li>
             </ul>
           </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Eingänge</a>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Eingänge</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">ARC/HDMI | WiFi 2,4 GHz | WiFi 5 GHz | Bluetooth | RCA in | TOSLINK Optical</a>
+                ARC/HDMI | WiFi 2,4 GHz | WiFi 5 GHz | Bluetooth | RCA in | TOSLINK Optical
               </li>
             </ul>
           </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Ausgänge</a>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Ausgänge</button>
+            <ul class="sub_list">
+              <li class="sub_item">RCA Sub</li>
+            </ul>
+          </li>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Sound Support</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">RCA Sub</a>
+                Apple Lossless | MP3 | WMA | AAC | FLAC
               </li>
             </ul>
           </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Sound Support</a>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Stromverbrauch</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">Apple Lossless | MP3 | WMA | AAC | FLAC</a>
+                Stromverbrauch WiFi: 1.85 W | Stromverbrauch ON: 5.2 W
               </li>
             </ul>
           </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Stromverbrauch</a>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Multiroom Kompatibilität</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">Stromverbrauch WiFi: 1.85 W | Stromverbrauch ON: 5.2 W</a>
+                Multiroom Audio Pro | Multiroom AirPlay2 | Multiroom Google Cast
               </li>
             </ul>
           </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Multiroom Kompatibilität</a>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Streaming Support</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">Multiroom Audio Pro | Multiroom AirPlay2 | Multiroom Google Cast</a>
+                Spotify Connect | Tidal Connect
               </li>
             </ul>
           </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Streaming Support</a>
+          <li class="faq_item cursor_effect">
+            <button class="faq_item_title">Sonstiges</button>
             <ul class="sub_list">
               <li class="sub_item">
-                <a href="">Spotify Connect | Tidal Connect</a>
-              </li>
-            </ul>
-          </li>
-          <li class="faq_item">
-            <a href="" class="faq_item_title">Sonstiges</a>
-            <ul class="sub_list">
-              <li class="sub_item">
-                <a href="">Abnehmbare Front: Ja | Verfügbare Presets: 5</a>
+                Abnehmbare Front: Ja | Verfügbare Presets: 5
               </li>
             </ul>
           </li>
@@ -534,9 +518,7 @@
       </a>
       <p class="footer_logo_desc">Diese Seite ist nicht mit Audio Pro assoziiert. Sie dient nur zu Bildungszwecken.</p>
       <div class="creator_area">
-        <!-- [D] 모든 .cursor_effect 에 마우스를 올리면 .is_active 클래스네임이 추가 -->
-        <!-- [D] 모든 .cursor_effect 에 마우스가 벗어나면 .is_active 클래스네임이 삭제 -->
-        <a href="" class="cursor_effect">
+        <a href="" class="creator cursor_effect">
           <div class="profile_image">
             <picture>
               <source media="(max-width: 767px)" srcset="./assets/images/img_peil2.webp">
@@ -549,7 +531,7 @@
             <p class="position">3D Product Designer</p>
           </div>
         </a>
-        <a href="" class="cursor_effect">
+        <a href="" class="creator cursor_effect">
           <div class="profile_image">
             <picture>
               <source media="(max-width: 767px)" srcset="./assets/images/img_adlophs2.jpg">
@@ -561,7 +543,7 @@
             <p class="position">Copywriter</p>
           </div>
         </a>
-        <a href="" class="cursor_effect">
+        <a href="" class="creator cursor_effect">
           <div class="profile_image">
             <picture>
               <source media="(max-width: 767px)" srcset="./assets/images/img_wiemer2.jpg">
@@ -578,12 +560,11 @@
           </div>
         </a>
       </div>
-      <button class="to_eng" type="button">Switch to English</button>
+      <button type="button" class="to_eng cursor_effect" aria-pressed="false">Switch to English</button>
     </div>
   </footer>
   <div class="badge">
-    <a href="https://www.awwwards.com/sites/audio-pro-a28">
-      <span class="blind">audio-pro-a28 사이트 링크</span>
+    <a href="" aria-label="audio-pro-a28">
       <svg width="53.08" height="171.358">
         <path fill="white" d="M0 0h53.08v171.358H0z"></path>
         <g fill="black">
