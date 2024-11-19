@@ -411,6 +411,8 @@ fieldset {
   .header .gnb_mobile.is_show .purchase_link {
     display: inline-block;
     width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
     margin-top: 20px;
     padding: 12px 28px;
     border: 2px solid #2e2e2e;
