@@ -30,13 +30,13 @@
 - chrome Lighthouse 결과 :<br>
 모바일 디바이스의 접근성 표준을 준수하였는지 로컬에서 검사할수 있는 goole 의 lighthouse 로 검사하면 개선할점이 Accessibility  항목과 Best Practices 항목에서 나타납니다.  <br>
 [1] 데스크탑
-<img src="https://github.com/user-attachments/assets/45c7a1dc-2862-4924-a4f0-b97ad43cc853" width=800> <br>
+<img src="https://github.com/user-attachments/assets/834029c4-9c4a-4f4d-a030-b5a7b9398e33" width=800> <br>
 [2] 모바일
-<img src="https://github.com/user-attachments/assets/57d10dba-03a7-4bdb-aabc-f23efd441888" width=800> <br>
+<img src="https://github.com/user-attachments/assets/917e1810-9054-4cd9-830a-0568e11c2918" width=800> <br>
 - Open-WAX 결과 : error 0<br>
 <img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/2a1b47af-ad13-431d-8ad4-0a6b4cefb43a" width=800> <br>
 - WAVE 결과: error 0<br>
-<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/10c5a0c3-358a-4556-b26c-7401a134d7ee" width=800>
+<img src="https://github.com/user-attachments/assets/7eec7296-2a26-4305-a47b-5aafb5bb8238" width=800>
 
 
 ## 모바일 디바이스 검수
